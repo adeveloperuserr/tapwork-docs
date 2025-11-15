@@ -1,0 +1,24 @@
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Docusaurus / build
+.build/
+build/
+.docusaurus/
+site/
+
+# Editor / OS
+.vscode/
+.idea/
+*.DS_Store
+
+# Env
+.env
+.env.*.local
+
+# Logs
+logs/
+*.log

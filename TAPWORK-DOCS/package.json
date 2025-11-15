@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/yourusername/tapwork-docs.git"
+    "url": "https://github.com/adeveloperuserr/tapwork-docs.git"
   },
   "keywords": [
     "documentation",
@@ -20,7 +20,8 @@
   "author": "Your Name",
   "license": "MIT",
   "dependencies": {
-    "docusaurus": "^2.0.0"
+    "@docusaurus/core": "^3.9.2",
+    "@docusaurus/preset-classic": "^3.9.2"
   },
   "devDependencies": {
     "typescript": "^4.0.0"
