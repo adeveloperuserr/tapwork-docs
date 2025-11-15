@@ -1,25 +1,28 @@
 module.exports = {
-  someSidebar: {
-    'Getting Started': ['intro', 'getting-started'],
-    'Guides': [
-      {
-        type: 'category',
-        label: 'Usage',
-        items: ['guides/usage'],
-      },
-      {
-        type: 'category',
-        label: 'API',
-        items: ['guides/api'],
-      },
-    ],
-    'Requirements': [
-      'requerimientos/funcionales',
-      'requerimientos/no_funcionales',
-      'requerimientos/tecnicos',
-      'requerimientos/infraestructura',
-      'requerimientos/integracion',
-      'requerimientos/fases',
-    ],
-  },
+  docs: [
+    'intro',
+    'getting-started',
+    {
+      type: 'category',
+      label: 'Requerimientos',
+      collapsible: true,
+      items: [
+        'rf/intro',
+        'rf/functional-requirements',
+        'rf/non-functional-requirements',
+        'rf/technical-requirements',
+        'rf/infrastructure',
+        'rf/integration',
+        'rf/phases'
+      ],
+    },
+    {
+      type: 'category',
+      label: 'Guías',
+      items: [
+        'guides/usage',
+        'guides/api'
+      ]
+    }
+  ],
 };
