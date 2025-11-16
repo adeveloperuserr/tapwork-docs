@@ -18,7 +18,6 @@ module.exports = {
           sidebarPath: require.resolve('./sidebars.js'),
         },
         theme: {
-          // si no tienes custom css, puedes quitar esta línea
           customCss: require.resolve('./src/css/custom.css'),
         },
       },
