@@ -7,7 +7,7 @@
     "build": "docusaurus build website",
     "start": "docusaurus start website",
     "predeploy": "npm run build",
-    "deploy": "docusaurus deploy website --branch gh-pages"
+    "deploy": "set GIT_USER=adeveloperuserr && docusaurus deploy website"
   },
   "repository": {
     "type": "git",

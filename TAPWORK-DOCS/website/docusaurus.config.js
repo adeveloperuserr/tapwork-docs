@@ -4,6 +4,7 @@ module.exports = {
   baseUrl: '/tapwork-docs/',
   organizationName: 'adeveloperuserr',
   projectName: 'tapwork-docs',
+  deploymentBranch: 'gh-pages',
   trailingSlash: false,
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
