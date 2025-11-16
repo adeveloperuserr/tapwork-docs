@@ -17,7 +17,7 @@ export default function Home() {
           </p>
 
           <div className={styles.buttons}>
-            <Link className="button button--primary button--lg" to="/docs/getting-started">
+            <Link className="button button--primary button--lg" to="/getting-started">
               Get Started
             </Link>
           </div>
@@ -27,10 +27,10 @@ export default function Home() {
       <main className="container">
         <h2>Sections</h2>
         <ul>
-          <li><Link to="/docs/intro">Introduction</Link></li>
-          <li><Link to="/docs/getting-started">Getting Started</Link></li>
-          <li><Link to="/docs/guides/usage">Usage Guide</Link></li>
-          <li><Link to="/docs/guides/api">API Reference</Link></li>
+          <li><Link to="/intro">Introduction</Link></li>
+          <li><Link to="/getting-started">Getting Started</Link></li>
+          <li><Link to="/guides/usage">Usage Guide</Link></li>
+          <li><Link to="/guides/api">API Reference</Link></li>
         </ul>
       </main>
     </Layout>

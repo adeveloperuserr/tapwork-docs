@@ -27,10 +27,10 @@ module.exports = {
      navbar: {
       title: 'TAPWORK Docs',
       items: [
-        { to: '/docs/intro', label: 'Introduction', position: 'left' },
-        { to: '/docs/getting-started', label: 'Getting Started', position: 'left' },
-        { to: '/docs/guides/api', label: 'API', position: 'left' },
-        { to: '/docs/guides/usage', label: 'Usage Guide', position: 'left' },
+        { to: '/intro', label: 'Introduction', position: 'left' },
+        { to: '/getting-started', label: 'Getting Started', position: 'left' },
+        { to: '/guides/api', label: 'API', position: 'left' },
+        { to: '/guides/usage', label: 'Usage Guide', position: 'left' },
       ],
     },
     footer: {

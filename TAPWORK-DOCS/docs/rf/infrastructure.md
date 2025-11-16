@@ -1,4 +1,4 @@
-# Infrastructure Requirements for TAPWORK
+# Infrastructure Requirements
 
 ## Overview
 This document outlines the infrastructure requirements necessary for both the development and production environments of the TAPWORK system. It includes specifications for tools, Kubernetes clusters, SSL, load balancing, backups, and version control practices.

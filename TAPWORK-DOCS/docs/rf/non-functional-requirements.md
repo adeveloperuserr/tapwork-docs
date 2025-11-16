@@ -1,5 +1,3 @@
-# Contents of the file: /TAPWORK-DOCS/TAPWORK-DOCS/docs/non-functional-requirements.md
-
 # Non-Functional Requirements
 
 ## Security

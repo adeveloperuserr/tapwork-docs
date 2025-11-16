@@ -1,5 +1,3 @@
-# Integration Requirements
-
 ## Overview
 This document outlines the integration requirements for the TAPWORK system. It focuses on the necessary integrations with external systems and services to ensure seamless functionality and user experience.
 

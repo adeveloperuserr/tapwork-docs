@@ -1,5 +1,3 @@
-# Content for /TAPWORK-DOCS/TAPWORK-DOCS/docs/phases.md
-
 # Project Phases
 
 This document outlines the various phases of the TAPWORK project, detailing the scope and objectives of each phase.

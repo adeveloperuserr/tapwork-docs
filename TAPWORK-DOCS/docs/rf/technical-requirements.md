@@ -1,5 +1,3 @@
-# File: /TAPWORK-DOCS/TAPWORK-DOCS/docs/technical-requirements.md
-
 # Technical Requirements
 
 ## Backend Technologies

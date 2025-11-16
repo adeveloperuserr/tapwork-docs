@@ -1,4 +1,4 @@
-# Functional Requirements for TAPWORK
+# Functional Requirements
 
 ## User Registration
 - The system shall allow users to register with their email address and a secure password.

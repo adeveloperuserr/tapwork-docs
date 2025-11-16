@@ -1,5 +1,3 @@
-# Content for /TAPWORK-DOCS/TAPWORK-DOCS/docs/intro.md
-
 # Introduction to TAPWORK
 
 Welcome to the TAPWORK documentation! This project aims to provide a comprehensive solution for managing user attendance and related functionalities. TAPWORK is designed to streamline processes through a user-friendly interface and robust backend systems.
