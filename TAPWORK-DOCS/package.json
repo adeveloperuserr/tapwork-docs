@@ -4,10 +4,10 @@
   "description": "Documentation for TAPWORK project",
   "main": "index.js",
   "scripts": {
-    "build": "docusaurus build website",
-    "start": "docusaurus start website",
+    "build": "docusaurus build",
+    "start": "docusaurus start",
     "predeploy": "npm run build",
-    "deploy": "cross-env USE_SSH=true docusaurus deploy website"
+    "deploy": "cross-env USE_SSH=true docusaurus deploy"
   },
   "repository": {
     "type": "git",
@@ -24,7 +24,8 @@
     "@docusaurus/core": "^3.9.2",
     "@docusaurus/preset-classic": "^3.9.2",
     "@docusaurus/theme-classic": "^3.9.2",
-    "gh-pages": "^6.3.0"
+    "gh-pages": "^6.3.0",
+    "prism-react-renderer": "^2.4.1"
   },
   "devDependencies": {
     "cross-env": "^10.1.0",

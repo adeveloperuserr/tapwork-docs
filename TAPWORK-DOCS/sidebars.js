@@ -1,28 +1,26 @@
-module.exports = {
-  docs: [
+/** @type {import('@docusaurus/plugin-content-docs').SidebarsConfig} */
+const sidebars = {
+  docsSidebar: [
     'intro',
     'getting-started',
     {
       type: 'category',
-      label: 'Requerimientos',
-      collapsible: true,
+      label: 'Requirements',
       items: [
-        'rf/intro',
         'rf/functional-requirements',
         'rf/non-functional-requirements',
         'rf/technical-requirements',
         'rf/infrastructure',
         'rf/integration',
-        'rf/phases'
+        'rf/phases',
       ],
     },
     {
       type: 'category',
-      label: 'Guías',
-      items: [
-        'guides/usage',
-        'guides/api'
-      ]
-    }
+      label: 'Guides',
+      items: ['guides/guide-1'],
+    },
   ],
 };
+
+module.exports = sidebars;

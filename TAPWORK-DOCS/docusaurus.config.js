@@ -1,10 +1,10 @@
+/** @type {import('@docusaurus/types').Config} */
 module.exports = {
   title: 'TapWork Docs',
   url: 'https://adeveloperuserr.github.io',
   baseUrl: '/tapwork-docs/',
   organizationName: 'adeveloperuserr',
   projectName: 'tapwork-docs',
-  deploymentBranch: 'gh-pages',
   trailingSlash: false,
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
@@ -13,14 +13,23 @@ module.exports = {
       '@docusaurus/preset-classic',
       {
         docs: {
-          path: '../docs',
-          routeBasePath: '/',            // servir las docs en la raíz del sitio
+          path: 'docs',
+          routeBasePath: '/',
           sidebarPath: require.resolve('./sidebars.js'),
         },
         theme: {
-          customCss: require.resolve('./src/css/custom.css'),
+          customCss: require.resolve('./src/styles/custom.css'),
         },
       },
     ],
   ],
+  themeConfig: {
+    navbar: {
+      title: 'TapWork Docs',
+    },
+    footer: {
+      style: 'dark',
+      copyright: `© ${new Date().getFullYear()} TapWork`,
+    },
+  },
 };
