@@ -18,18 +18,24 @@ module.exports = {
           sidebarPath: require.resolve('./sidebars.js'),
         },
         theme: {
-          customCss: require.resolve('./src/styles/custom.css'),
+          customCss: require.resolve('./src/styles/main.css'),
         },
       },
     ],
   ],
   themeConfig: {
-    navbar: {
-      title: 'TapWork Docs',
+     navbar: {
+      title: 'TAPWORK Docs',
+      items: [
+        { to: '/docs/intro', label: 'Introduction', position: 'left' },
+        { to: '/docs/getting-started', label: 'Getting Started', position: 'left' },
+        { to: '/docs/guides/api', label: 'API', position: 'left' },
+        { to: '/docs/guides/usage', label: 'Usage Guide', position: 'left' },
+      ],
     },
     footer: {
       style: 'dark',
-      copyright: `© ${new Date().getFullYear()} TapWork`,
+      copyright: `© ${new Date().getFullYear()} TAPWORK-DOCS. All rights reserved.`,
     },
   },
 };
