@@ -26,12 +26,6 @@ module.exports = {
   themeConfig: {
      navbar: {
       title: 'TAPWORK Docs',
-      items: [
-        { to: '/intro', label: 'Introduction', position: 'left' },
-        { to: '/getting-started', label: 'Getting Started', position: 'left' },
-        { to: '/guides/api', label: 'API', position: 'left' },
-        { to: '/guides/usage', label: 'Usage Guide', position: 'left' },
-      ],
     },
     footer: {
       style: 'dark',

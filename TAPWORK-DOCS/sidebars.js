@@ -6,8 +6,18 @@ const sidebars = {
 
     {
       type: 'category',
+      label: 'Project Overview',
+      collapsed: true,
+      items: [
+        'planning/vision-context-scope',
+        'planning/feasibility-dependencies',
+      ],
+    },
+
+    {
+      type: 'category',
       label: 'Guides',
-      collapsed: false,
+      collapsed: true,
       items: [
         'guides/api',
         'guides/usage',
@@ -17,7 +27,7 @@ const sidebars = {
     {
       type: 'category',
       label: 'Requirements',
-      collapsed: false,
+      collapsed: true,
       items: [
         'rf/intro',
         'rf/functional-requirements',

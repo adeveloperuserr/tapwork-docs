@@ -1,4 +1,4 @@
-# Usage Guide for TAPWORK-DOCS
+# Usage Guide
 
 This document provides a comprehensive guide on how to effectively use the TAPWORK-DOCS project. It covers various aspects including installation, configuration, and best practices.
 

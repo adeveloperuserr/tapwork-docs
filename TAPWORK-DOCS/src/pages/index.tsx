@@ -11,28 +11,22 @@ export default function Home() {
     >
       <header className={styles.heroBanner}>
         <div className="container">
-          <h1 className="hero__title">TAPWORK Documentation</h1>
+          <h1 className="hero__title">TAPWORK</h1>
           <p className="hero__subtitle">
-            Explore all documentation resources for TAPWORK.
+            Professional attendance control system with biometric scanning and barcode technology
+          </p>
+          <p className={styles.heroDescription}>
+            Quick registration, automated notifications, and real-time reports. 
+            Modern architecture with REST API, Docker containers, and Kubernetes deployment.
           </p>
 
           <div className={styles.buttons}>
-            <Link className="button button--primary button--lg" to="/getting-started">
-              Get Started
+            <Link className="button button--primary button--lg" to="/intro">
+              View Documentation
             </Link>
           </div>
         </div>
       </header>
-
-      <main className="container">
-        <h2>Sections</h2>
-        <ul>
-          <li><Link to="/intro">Introduction</Link></li>
-          <li><Link to="/getting-started">Getting Started</Link></li>
-          <li><Link to="/guides/usage">Usage Guide</Link></li>
-          <li><Link to="/guides/api">API Reference</Link></li>
-        </ul>
-      </main>
     </Layout>
   );
 }
