@@ -8,6 +8,15 @@ module.exports = {
   trailingSlash: false,
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
+  
+  // ✅ AÑADE ESTO: Habilita Mermaid
+  markdown: {
+    mermaid: true,
+  },
+  
+  // ✅ AÑADE ESTO: Tema de Mermaid
+  themes: ['@docusaurus/theme-mermaid'],
+  
   presets: [
     [
       '@docusaurus/preset-classic',
@@ -23,10 +32,17 @@ module.exports = {
       },
     ],
   ],
+  
   themeConfig: {
-     navbar: {
+    // ✅ OPCIONAL: Configura el tema de Mermaid (dark/light)
+    mermaid: {
+      theme: {light: 'neutral', dark: 'dark'},
+    },
+    
+    navbar: {
       title: 'TAPWORK Docs',
     },
+    
     footer: {
       style: 'dark',
       copyright: `© ${new Date().getFullYear()} TAPWORK-DOCS. All rights reserved.`,

@@ -39,6 +39,20 @@ const sidebars = {
       ],
     },
 
+    {
+      type: 'category',
+      label: 'Architecture',
+      collapsed: true,
+      items: [
+        'architecture/system-overview',
+        'architecture/components',
+        'architecture/data-architecture',
+        'architecture/api-architecture',
+        'architecture/process-flows',
+        'architecture/deployment',
+      ],
+    },
+
     'CONTRIBUTING',
   ],
 };
