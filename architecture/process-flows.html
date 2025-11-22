@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-architecture/process-flows" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.9.2">
+<title data-rh="true">Process Flows | TapWork Docs</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://adeveloperuserr.github.io/tapwork-docs/architecture/process-flows"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Process Flows | TapWork Docs"><meta data-rh="true" name="description" content="This document describes the key workflows and business processes within the TAPWORK system."><meta data-rh="true" property="og:description" content="This document describes the key workflows and business processes within the TAPWORK system."><link data-rh="true" rel="canonical" href="https://adeveloperuserr.github.io/tapwork-docs/architecture/process-flows"><link data-rh="true" rel="alternate" href="https://adeveloperuserr.github.io/tapwork-docs/architecture/process-flows" hreflang="en"><link data-rh="true" rel="alternate" href="https://adeveloperuserr.github.io/tapwork-docs/architecture/process-flows" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Process Flows","item":"https://adeveloperuserr.github.io/tapwork-docs/architecture/process-flows"}]}</script><link rel="stylesheet" href="/tapwork-docs/assets/css/styles.9273b4fc.css">
+<script src="/tapwork-docs/assets/js/runtime~main.fde9657f.js" defer="defer"></script>
+<script src="/tapwork-docs/assets/js/main.af726ca2.js" defer="defer"></script>
+</head>
+<body class="navigation-with-keyboard">
+<svg style="display: none;"><defs>
+<symbol id="theme-svg-external-link" viewBox="0 0 24 24"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||"light"),document.documentElement.setAttribute("data-theme-choice",t||"light")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="theme-layout-navbar navbar navbar--fixed-top"><div class="navbar__inner"><div class="theme-layout-navbar-left navbar__items"><a class="navbar__brand" href="/tapwork-docs/"><b class="navbar__title text--truncate">TAPWORK Docs</b></a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill="currentColor" d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/tapwork-docs/intro"><span title="Introduction to TAPWORK" class="linkLabel_WmDU">Introduction to TAPWORK</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/tapwork-docs/getting-started"><span title="Getting Started with TAPWORK-DOCS" class="linkLabel_WmDU">Getting Started with TAPWORK-DOCS</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/tapwork-docs/planning/vision-context-scope"><span title="Project Overview" class="categoryLinkLabel_W154">Project Overview</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/tapwork-docs/guides/api"><span title="Guides" class="categoryLinkLabel_W154">Guides</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/tapwork-docs/rf/intro"><span title="Requirements" class="categoryLinkLabel_W154">Requirements</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" href="/tapwork-docs/architecture/system-overview"><span title="Architecture" class="categoryLinkLabel_W154">Architecture</span></a></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/tapwork-docs/architecture/system-overview"><span title="System Overview" class="linkLabel_WmDU">System Overview</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/tapwork-docs/architecture/components"><span title="Component Architecture" class="linkLabel_WmDU">Component Architecture</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/tapwork-docs/architecture/data-architecture"><span title="Data Architecture" class="linkLabel_WmDU">Data Architecture</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/tapwork-docs/architecture/api-architecture"><span title="API Architecture" class="linkLabel_WmDU">API Architecture</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/tapwork-docs/architecture/process-flows"><span title="Process Flows" class="linkLabel_WmDU">Process Flows</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/tapwork-docs/architecture/deployment"><span title="Deployment Architecture" class="linkLabel_WmDU">Deployment Architecture</span></a></li></ul></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/tapwork-docs/CONTRIBUTING"><span title="Contributing" class="linkLabel_WmDU">Contributing</span></a></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Breadcrumbs"><ul class="breadcrumbs"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/tapwork-docs/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">Architecture</span></li><li class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link">Process Flows</span></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>Process Flows</h1></header>
+<p>This document describes the key workflows and business processes within the TAPWORK system.</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="user-registration-flow">User Registration Flow<a href="#user-registration-flow" class="hash-link" aria-label="Direct link to User Registration Flow" title="Direct link to User Registration Flow" translate="no">​</a></h2>
+<p>The registration process creates a new user account, generates a unique QR code, and sends credentials via email.</p>
+<!-- -->
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="registration-steps">Registration Steps<a href="#registration-steps" class="hash-link" aria-label="Direct link to Registration Steps" title="Direct link to Registration Steps" translate="no">​</a></h3>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-user-input-collection">1. User Input Collection<a href="#1-user-input-collection" class="hash-link" aria-label="Direct link to 1. User Input Collection" title="Direct link to 1. User Input Collection" translate="no">​</a></h4>
+<p><strong>User provides:</strong></p>
+<ul>
+<li class="">Email address</li>
+<li class="">Password (minimum 8 characters)</li>
+<li class="">First name and last name</li>
+<li class="">Employee ID (unique company identifier)</li>
+<li class="">Department selection</li>
+<li class="">Shift assignment</li>
+</ul>
+<p><strong>Validation rules:</strong></p>
+<ul>
+<li class="">Email must be valid format and unique</li>
+<li class="">Password must meet complexity requirements</li>
+<li class="">Employee ID must be unique within system</li>
+<li class="">All required fields must be filled</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-data-validation">2. Data Validation<a href="#2-data-validation" class="hash-link" aria-label="Direct link to 2. Data Validation" title="Direct link to 2. Data Validation" translate="no">​</a></h4>
+<p><strong>API validates:</strong></p>
+<ul>
+<li class="">Email format and uniqueness</li>
+<li class="">Password strength (uppercase, lowercase, numbers, special chars)</li>
+<li class="">Employee ID uniqueness</li>
+<li class="">Department exists in system</li>
+<li class="">Shift exists and is active</li>
+</ul>
+<p><strong>Error handling:</strong></p>
+<ul>
+<li class="">Return specific error messages</li>
+<li class="">Highlight invalid fields</li>
+<li class="">Suggest corrections</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-account-creation">3. Account Creation<a href="#3-account-creation" class="hash-link" aria-label="Direct link to 3. Account Creation" title="Direct link to 3. Account Creation" translate="no">​</a></h4>
+<p><strong>System performs:</strong></p>
+<ul>
+<li class="">Hash password using bcrypt (cost factor 12)</li>
+<li class="">Create user record in database</li>
+<li class="">Assign default role (Employee)</li>
+<li class="">Set account status to active</li>
+<li class="">Record creation timestamp</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-qr-code-generation">4. QR Code Generation<a href="#4-qr-code-generation" class="hash-link" aria-label="Direct link to 4. QR Code Generation" title="Direct link to 4. QR Code Generation" translate="no">​</a></h4>
+<p><strong>System generates:</strong></p>
+<ul>
+<li class="">Unique QR code containing encrypted user data</li>
+<li class="">Base64 encoded QR image (PNG format)</li>
+<li class="">QR code metadata (generation time, expiration)</li>
+<li class="">Store QR code mapping in database</li>
+</ul>
+<p><strong>QR Code data structure:</strong></p>
+<div class="language-json codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-json codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#bfc7d5"><span class="token punctuation" style="color:rgb(199, 146, 234)">{</span><span class="token plain"></span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">  </span><span class="token property">&quot;user_id&quot;</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token string" style="color:rgb(195, 232, 141)">&quot;uuid&quot;</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">  </span><span class="token property">&quot;employee_id&quot;</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token string" style="color:rgb(195, 232, 141)">&quot;EMP001&quot;</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">  </span><span class="token property">&quot;generated_at&quot;</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token string" style="color:rgb(195, 232, 141)">&quot;timestamp&quot;</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">  </span><span class="token property">&quot;signature&quot;</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token string" style="color:rgb(195, 232, 141)">&quot;hmac_signature&quot;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain"></span><span class="token punctuation" style="color:rgb(199, 146, 234)">}</span><br></span></code></pre></div></div>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="5-email-notification">5. Email Notification<a href="#5-email-notification" class="hash-link" aria-label="Direct link to 5. Email Notification" title="Direct link to 5. Email Notification" translate="no">​</a></h4>
+<p><strong>Welcome email contains:</strong></p>
+<ul>
+<li class="">Welcome message with company branding</li>
+<li class="">Login credentials (email only, not password)</li>
+<li class="">QR code image embedded</li>
+<li class="">Instructions for first-time login</li>
+<li class="">Link to scanner application</li>
+<li class="">Support contact information</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="6-confirmation">6. Confirmation<a href="#6-confirmation" class="hash-link" aria-label="Direct link to 6. Confirmation" title="Direct link to 6. Confirmation" translate="no">​</a></h4>
+<p><strong>User receives:</strong></p>
+<ul>
+<li class="">Success message on screen</li>
+<li class="">Email with QR code</li>
+<li class="">Instructions for next steps</li>
+<li class="">Automatic redirect to login page (optional)</li>
+</ul>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="attendance-check-in-flow">Attendance Check-In Flow<a href="#attendance-check-in-flow" class="hash-link" aria-label="Direct link to Attendance Check-In Flow" title="Direct link to Attendance Check-In Flow" translate="no">​</a></h2>
+<p>The check-in process validates user identity and records attendance.</p>
+<!-- -->
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="check-in-steps">Check-In Steps<a href="#check-in-steps" class="hash-link" aria-label="Direct link to Check-In Steps" title="Direct link to Check-In Steps" translate="no">​</a></h3>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-scanner-activation">1. Scanner Activation<a href="#1-scanner-activation" class="hash-link" aria-label="Direct link to 1. Scanner Activation" title="Direct link to 1. Scanner Activation" translate="no">​</a></h4>
+<p><strong>Employee action:</strong></p>
+<ul>
+<li class="">Opens scanner application in browser</li>
+<li class="">Grants camera permissions (if first time)</li>
+<li class="">Views camera preview</li>
+</ul>
+<p><strong>System preparation:</strong></p>
+<ul>
+<li class="">Initialize camera using WebRTC</li>
+<li class="">Load user session (if logged in)</li>
+<li class="">Check network connectivity</li>
+<li class="">Display instructions</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-qr-code-scanning">2. QR Code Scanning<a href="#2-qr-code-scanning" class="hash-link" aria-label="Direct link to 2. QR Code Scanning" title="Direct link to 2. QR Code Scanning" translate="no">​</a></h4>
+<p><strong>Scanning process:</strong></p>
+<ul>
+<li class="">Continuous camera frame analysis</li>
+<li class="">Real-time QR code detection</li>
+<li class="">Decode QR code data when detected</li>
+<li class="">Vibration/sound feedback on successful scan (optional)</li>
+</ul>
+<p><strong>Data extraction:</strong></p>
+<ul>
+<li class="">Parse QR code payload</li>
+<li class="">Verify QR code signature</li>
+<li class="">Extract user identification</li>
+<li class="">Check QR code expiration</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-qr-code-validation">3. QR Code Validation<a href="#3-qr-code-validation" class="hash-link" aria-label="Direct link to 3. QR Code Validation" title="Direct link to 3. QR Code Validation" translate="no">​</a></h4>
+<p><strong>System validates:</strong></p>
+<ul>
+<li class="">QR code format is correct</li>
+<li class="">Signature is valid (HMAC verification)</li>
+<li class="">QR code has not expired</li>
+<li class="">User exists and is active</li>
+<li class="">QR code has not been revoked</li>
+</ul>
+<p><strong>Validation errors:</strong></p>
+<ul>
+<li class="">Invalid format: &quot;QR code is not valid&quot;</li>
+<li class="">Expired: &quot;QR code has expired, please regenerate&quot;</li>
+<li class="">Revoked: &quot;QR code has been revoked&quot;</li>
+<li class="">User inactive: &quot;Your account is inactive, contact HR&quot;</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-biometric-verification-optional">4. Biometric Verification (Optional)<a href="#4-biometric-verification-optional" class="hash-link" aria-label="Direct link to 4. Biometric Verification (Optional)" title="Direct link to 4. Biometric Verification (Optional)" translate="no">​</a></h4>
+<p><strong>If enabled:</strong></p>
+<ul>
+<li class="">Capture biometric sample (face photo or fingerprint)</li>
+<li class="">Send to biometric service</li>
+<li class="">Compare against enrolled template</li>
+<li class="">Receive verification result with confidence score</li>
+</ul>
+<p><strong>Fallback:</strong></p>
+<ul>
+<li class="">If biometric service unavailable, proceed without verification</li>
+<li class="">Log biometric service failure</li>
+<li class="">Notify administrators</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="5-duplicate-check">5. Duplicate Check<a href="#5-duplicate-check" class="hash-link" aria-label="Direct link to 5. Duplicate Check" title="Direct link to 5. Duplicate Check" translate="no">​</a></h4>
+<p><strong>System checks:</strong></p>
+<ul>
+<li class="">Query last attendance record for user</li>
+<li class="">Check if already checked in today</li>
+<li class="">If checked in, verify if check-out has occurred</li>
+<li class="">Determine if this is check-in or check-out</li>
+</ul>
+<p><strong>Business rules:</strong></p>
+<ul>
+<li class="">Cannot check-in twice without check-out</li>
+<li class="">Cannot check-out without check-in</li>
+<li class="">Minimum 1-hour gap between check-out and next check-in</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="6-status-calculation">6. Status Calculation<a href="#6-status-calculation" class="hash-link" aria-label="Direct link to 6. Status Calculation" title="Direct link to 6. Status Calculation" translate="no">​</a></h4>
+<p><strong>System calculates:</strong></p>
+<ul>
+<li class="">Get employee&#x27;s assigned shift</li>
+<li class="">Compare actual time with shift start time</li>
+<li class="">Apply grace period (if configured)</li>
+<li class="">Determine status: on-time, late, early, overtime</li>
+</ul>
+<p><strong>Status determination:</strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#bfc7d5"><span class="token plain">IF check_in &lt;= shift_start + grace_period:</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">    status = &quot;on_time&quot;</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">ELSE IF check_in &gt; shift_start + grace_period:</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">    status = &quot;late&quot;</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">    minutes_late = check_in - (shift_start + grace_period)</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">ELSE IF check_in &lt; shift_start - 30 minutes:</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">    status = &quot;early&quot;</span><br></span></code></pre></div></div>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="7-record-persistence">7. Record Persistence<a href="#7-record-persistence" class="hash-link" aria-label="Direct link to 7. Record Persistence" title="Direct link to 7. Record Persistence" translate="no">​</a></h4>
+<p><strong>Database transaction:</strong></p>
+<ul>
+<li class="">Create new attendance record</li>
+<li class="">Set check-in timestamp</li>
+<li class="">Store location (if available)</li>
+<li class="">Link to shift</li>
+<li class="">Set calculated status</li>
+<li class="">Commit transaction</li>
+</ul>
+<p><strong>Record fields:</strong></p>
+<ul>
+<li class="">User ID</li>
+<li class="">Check-in timestamp</li>
+<li class="">Status (on-time, late, early)</li>
+<li class="">Location (GPS coordinates or office name)</li>
+<li class="">Device information</li>
+<li class="">Shift reference</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="8-notification">8. Notification<a href="#8-notification" class="hash-link" aria-label="Direct link to 8. Notification" title="Direct link to 8. Notification" translate="no">​</a></h4>
+<p><strong>Email notification sent:</strong></p>
+<ul>
+<li class="">To employee: Attendance confirmation</li>
+<li class="">To supervisor (if late): Late arrival alert</li>
+<li class="">Contains: timestamp, status, location</li>
+</ul>
+<p><strong>Push notification (if enabled):</strong></p>
+<ul>
+<li class="">Mobile device notification</li>
+<li class="">Browser notification</li>
+<li class="">Contains brief summary</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="9-success-confirmation">9. Success Confirmation<a href="#9-success-confirmation" class="hash-link" aria-label="Direct link to 9. Success Confirmation" title="Direct link to 9. Success Confirmation" translate="no">​</a></h4>
+<p><strong>UI feedback:</strong></p>
+<ul>
+<li class="">Success message displayed</li>
+<li class="">Show check-in time</li>
+<li class="">Display status (on-time, late)</li>
+<li class="">Show next action (expected check-out time)</li>
+<li class="">Vibration/sound feedback</li>
+</ul>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="attendance-check-out-flow">Attendance Check-Out Flow<a href="#attendance-check-out-flow" class="hash-link" aria-label="Direct link to Attendance Check-Out Flow" title="Direct link to Attendance Check-Out Flow" translate="no">​</a></h2>
+<p>Similar to check-in, but records departure time and calculates hours worked.</p>
+<!-- -->
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="check-out-steps">Check-Out Steps<a href="#check-out-steps" class="hash-link" aria-label="Direct link to Check-Out Steps" title="Direct link to Check-Out Steps" translate="no">​</a></h3>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-locate-check-in-record">1. Locate Check-In Record<a href="#1-locate-check-in-record" class="hash-link" aria-label="Direct link to 1. Locate Check-In Record" title="Direct link to 1. Locate Check-In Record" translate="no">​</a></h4>
+<p><strong>System searches:</strong></p>
+<ul>
+<li class="">Find attendance record for user today</li>
+<li class="">Verify check-in exists</li>
+<li class="">Confirm check-out is null</li>
+<li class="">Retrieve check-in timestamp</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-calculate-hours-worked">2. Calculate Hours Worked<a href="#2-calculate-hours-worked" class="hash-link" aria-label="Direct link to 2. Calculate Hours Worked" title="Direct link to 2. Calculate Hours Worked" translate="no">​</a></h4>
+<p><strong>Calculation:</strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#bfc7d5"><span class="token plain">hours_worked = check_out_time - check_in_time</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">regular_hours = min(hours_worked, shift_duration)</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">overtime_hours = max(0, hours_worked - shift_duration)</span><br></span></code></pre></div></div>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-update-record">3. Update Record<a href="#3-update-record" class="hash-link" aria-label="Direct link to 3. Update Record" title="Direct link to 3. Update Record" translate="no">​</a></h4>
+<p><strong>System updates:</strong></p>
+<ul>
+<li class="">Set check-out timestamp</li>
+<li class="">Calculate and store hours worked</li>
+<li class="">Update status if overtime detected</li>
+<li class="">Add any notes or comments</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-send-summary">4. Send Summary<a href="#4-send-summary" class="hash-link" aria-label="Direct link to 4. Send Summary" title="Direct link to 4. Send Summary" translate="no">​</a></h4>
+<p><strong>Daily summary email:</strong></p>
+<ul>
+<li class="">Check-in time</li>
+<li class="">Check-out time</li>
+<li class="">Total hours worked</li>
+<li class="">Overtime (if any)</li>
+<li class="">Status summary</li>
+</ul>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="report-generation-flow">Report Generation Flow<a href="#report-generation-flow" class="hash-link" aria-label="Direct link to Report Generation Flow" title="Direct link to Report Generation Flow" translate="no">​</a></h2>
+<!-- -->
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="report-generation-steps">Report Generation Steps<a href="#report-generation-steps" class="hash-link" aria-label="Direct link to Report Generation Steps" title="Direct link to Report Generation Steps" translate="no">​</a></h3>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-parameter-selection">1. Parameter Selection<a href="#1-parameter-selection" class="hash-link" aria-label="Direct link to 1. Parameter Selection" title="Direct link to 1. Parameter Selection" translate="no">​</a></h4>
+<p><strong>User specifies:</strong></p>
+<ul>
+<li class="">Report type (daily, weekly, monthly, custom)</li>
+<li class="">Date range</li>
+<li class="">Department filter</li>
+<li class="">Employee filter</li>
+<li class="">Format (PDF, Excel, CSV)</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-data-query">2. Data Query<a href="#2-data-query" class="hash-link" aria-label="Direct link to 2. Data Query" title="Direct link to 2. Data Query" translate="no">​</a></h4>
+<p><strong>System queries:</strong></p>
+<ul>
+<li class="">Attendance records in date range</li>
+<li class="">Apply filters (department, employee)</li>
+<li class="">Join with user, shift, department data</li>
+<li class="">Calculate aggregations</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-data-processing">3. Data Processing<a href="#3-data-processing" class="hash-link" aria-label="Direct link to 3. Data Processing" title="Direct link to 3. Data Processing" translate="no">​</a></h4>
+<p><strong>Calculations:</strong></p>
+<ul>
+<li class="">Total attendance days</li>
+<li class="">Late arrivals count</li>
+<li class="">Absence count</li>
+<li class="">Average hours worked</li>
+<li class="">Overtime hours</li>
+<li class="">Attendance rate percentage</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-report-formatting">4. Report Formatting<a href="#4-report-formatting" class="hash-link" aria-label="Direct link to 4. Report Formatting" title="Direct link to 4. Report Formatting" translate="no">​</a></h4>
+<p><strong>System formats:</strong></p>
+<ul>
+<li class="">Apply company branding</li>
+<li class="">Generate charts and graphs</li>
+<li class="">Create summary tables</li>
+<li class="">Add footer with generation timestamp</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="5-delivery">5. Delivery<a href="#5-delivery" class="hash-link" aria-label="Direct link to 5. Delivery" title="Direct link to 5. Delivery" translate="no">​</a></h4>
+<p><strong>Output options:</strong></p>
+<ul>
+<li class="">Download immediately</li>
+<li class="">Email to recipient</li>
+<li class="">Schedule recurring report</li>
+<li class="">Store in report archive</li>
+</ul>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="error-handling-workflows">Error Handling Workflows<a href="#error-handling-workflows" class="hash-link" aria-label="Direct link to Error Handling Workflows" title="Direct link to Error Handling Workflows" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="invalid-qr-code-handling">Invalid QR Code Handling<a href="#invalid-qr-code-handling" class="hash-link" aria-label="Direct link to Invalid QR Code Handling" title="Direct link to Invalid QR Code Handling" translate="no">​</a></h3>
+<ol>
+<li class="">Detect invalid QR format</li>
+<li class="">Show user-friendly error message</li>
+<li class="">Provide guidance (regenerate QR, contact support)</li>
+<li class="">Log error for monitoring</li>
+</ol>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="network-failure-handling">Network Failure Handling<a href="#network-failure-handling" class="hash-link" aria-label="Direct link to Network Failure Handling" title="Direct link to Network Failure Handling" translate="no">​</a></h3>
+<ol>
+<li class="">Detect network unavailability</li>
+<li class="">Store data locally (IndexedDB)</li>
+<li class="">Queue for retry</li>
+<li class="">Sync when connection restored</li>
+<li class="">Notify user of offline status</li>
+</ol>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="biometric-failure-handling">Biometric Failure Handling<a href="#biometric-failure-handling" class="hash-link" aria-label="Direct link to Biometric Failure Handling" title="Direct link to Biometric Failure Handling" translate="no">​</a></h3>
+<ol>
+<li class="">Attempt biometric verification</li>
+<li class="">If fails, retry up to 3 times</li>
+<li class="">If still failing, fall back to QR-only</li>
+<li class="">Log failure for review</li>
+<li class="">Continue with attendance recording</li>
+</ol>
+<hr>
+<div class="theme-admonition theme-admonition-tip admonition_xJq3 alert alert--success"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 12 16"><path fill-rule="evenodd" d="M6.5 0C3.48 0 1 2.19 1 5c0 .92.55 2.25 1 3 1.34 2.25 1.78 2.78 2 4v1h5v-1c.22-1.22.66-1.75 2-4 .45-.75 1-2.08 1-3 0-2.81-2.48-5-5.5-5zm3.64 7.48c-.25.44-.47.8-.67 1.11-.86 1.41-1.25 2.06-1.45 3.23-.02.05-.02.11-.02.17H5c0-.06 0-.13-.02-.17-.2-1.17-.59-1.83-1.45-3.23-.2-.31-.42-.67-.67-1.11C2.44 6.78 2 5.65 2 5c0-2.2 2.02-4 4.5-4 1.22 0 2.36.42 3.22 1.19C10.55 2.94 11 3.94 11 5c0 .66-.44 1.78-.86 2.48zM4 14h5c-.23 1.14-1.3 2-2.5 2s-2.27-.86-2.5-2z"></path></svg></span>Best Practices</div><div class="admonitionContent_BuS1"><p>All workflows include comprehensive error handling, audit logging, and user feedback mechanisms to ensure reliability and traceability.</p></div></div></div></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/tapwork-docs/architecture/api-architecture"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">API Architecture</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/tapwork-docs/architecture/deployment"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">Deployment Architecture</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#user-registration-flow" class="table-of-contents__link toc-highlight">User Registration Flow</a><ul><li><a href="#registration-steps" class="table-of-contents__link toc-highlight">Registration Steps</a></li></ul></li><li><a href="#attendance-check-in-flow" class="table-of-contents__link toc-highlight">Attendance Check-In Flow</a><ul><li><a href="#check-in-steps" class="table-of-contents__link toc-highlight">Check-In Steps</a></li></ul></li><li><a href="#attendance-check-out-flow" class="table-of-contents__link toc-highlight">Attendance Check-Out Flow</a><ul><li><a href="#check-out-steps" class="table-of-contents__link toc-highlight">Check-Out Steps</a></li></ul></li><li><a href="#report-generation-flow" class="table-of-contents__link toc-highlight">Report Generation Flow</a><ul><li><a href="#report-generation-steps" class="table-of-contents__link toc-highlight">Report Generation Steps</a></li></ul></li><li><a href="#error-handling-workflows" class="table-of-contents__link toc-highlight">Error Handling Workflows</a><ul><li><a href="#invalid-qr-code-handling" class="table-of-contents__link toc-highlight">Invalid QR Code Handling</a></li><li><a href="#network-failure-handling" class="table-of-contents__link toc-highlight">Network Failure Handling</a></li><li><a href="#biometric-failure-handling" class="table-of-contents__link toc-highlight">Biometric Failure Handling</a></li></ul></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="footer__bottom text--center"><div class="footer__copyright">© 2025 TAPWORK-DOCS. All rights reserved.</div></div></div></footer></div>
+</body>
+</html>

@@ -1,0 +1,312 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-architecture/data-architecture" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.9.2">
+<title data-rh="true">Data Architecture | TapWork Docs</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://adeveloperuserr.github.io/tapwork-docs/architecture/data-architecture"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Data Architecture | TapWork Docs"><meta data-rh="true" name="description" content="This document describes the database schema, data models, and relationships within the TAPWORK system."><meta data-rh="true" property="og:description" content="This document describes the database schema, data models, and relationships within the TAPWORK system."><link data-rh="true" rel="canonical" href="https://adeveloperuserr.github.io/tapwork-docs/architecture/data-architecture"><link data-rh="true" rel="alternate" href="https://adeveloperuserr.github.io/tapwork-docs/architecture/data-architecture" hreflang="en"><link data-rh="true" rel="alternate" href="https://adeveloperuserr.github.io/tapwork-docs/architecture/data-architecture" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Data Architecture","item":"https://adeveloperuserr.github.io/tapwork-docs/architecture/data-architecture"}]}</script><link rel="stylesheet" href="/tapwork-docs/assets/css/styles.9273b4fc.css">
+<script src="/tapwork-docs/assets/js/runtime~main.fde9657f.js" defer="defer"></script>
+<script src="/tapwork-docs/assets/js/main.af726ca2.js" defer="defer"></script>
+</head>
+<body class="navigation-with-keyboard">
+<svg style="display: none;"><defs>
+<symbol id="theme-svg-external-link" viewBox="0 0 24 24"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||"light"),document.documentElement.setAttribute("data-theme-choice",t||"light")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="theme-layout-navbar navbar navbar--fixed-top"><div class="navbar__inner"><div class="theme-layout-navbar-left navbar__items"><a class="navbar__brand" href="/tapwork-docs/"><b class="navbar__title text--truncate">TAPWORK Docs</b></a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill="currentColor" d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/tapwork-docs/intro"><span title="Introduction to TAPWORK" class="linkLabel_WmDU">Introduction to TAPWORK</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/tapwork-docs/getting-started"><span title="Getting Started with TAPWORK-DOCS" class="linkLabel_WmDU">Getting Started with TAPWORK-DOCS</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/tapwork-docs/planning/vision-context-scope"><span title="Project Overview" class="categoryLinkLabel_W154">Project Overview</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/tapwork-docs/guides/api"><span title="Guides" class="categoryLinkLabel_W154">Guides</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/tapwork-docs/rf/intro"><span title="Requirements" class="categoryLinkLabel_W154">Requirements</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" href="/tapwork-docs/architecture/system-overview"><span title="Architecture" class="categoryLinkLabel_W154">Architecture</span></a></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/tapwork-docs/architecture/system-overview"><span title="System Overview" class="linkLabel_WmDU">System Overview</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/tapwork-docs/architecture/components"><span title="Component Architecture" class="linkLabel_WmDU">Component Architecture</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/tapwork-docs/architecture/data-architecture"><span title="Data Architecture" class="linkLabel_WmDU">Data Architecture</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/tapwork-docs/architecture/api-architecture"><span title="API Architecture" class="linkLabel_WmDU">API Architecture</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/tapwork-docs/architecture/process-flows"><span title="Process Flows" class="linkLabel_WmDU">Process Flows</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/tapwork-docs/architecture/deployment"><span title="Deployment Architecture" class="linkLabel_WmDU">Deployment Architecture</span></a></li></ul></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/tapwork-docs/CONTRIBUTING"><span title="Contributing" class="linkLabel_WmDU">Contributing</span></a></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Breadcrumbs"><ul class="breadcrumbs"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/tapwork-docs/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">Architecture</span></li><li class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link">Data Architecture</span></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>Data Architecture</h1></header>
+<p>This document describes the database schema, data models, and relationships within the TAPWORK system.</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="database-schema-overview">Database Schema Overview<a href="#database-schema-overview" class="hash-link" aria-label="Direct link to Database Schema Overview" title="Direct link to Database Schema Overview" translate="no">​</a></h2>
+<p>TAPWORK uses PostgreSQL as its primary database, with a normalized relational schema designed for data integrity, query performance, and scalability.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="design-principles">Design Principles<a href="#design-principles" class="hash-link" aria-label="Direct link to Design Principles" title="Direct link to Design Principles" translate="no">​</a></h3>
+<p><strong>Normalization</strong></p>
+<ul>
+<li class="">Third Normal Form (3NF) to minimize redundancy</li>
+<li class="">Clear separation of concerns across tables</li>
+<li class="">Foreign key constraints enforce referential integrity</li>
+</ul>
+<p><strong>Performance</strong></p>
+<ul>
+<li class="">Strategic indexing on frequently queried columns</li>
+<li class="">Composite indexes for multi-column queries</li>
+<li class="">Partial indexes for filtered queries</li>
+</ul>
+<p><strong>Scalability</strong></p>
+<ul>
+<li class="">Connection pooling for efficient resource usage</li>
+<li class="">Prepared statements for query optimization</li>
+<li class="">Partitioning strategies for large tables (future)</li>
+</ul>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="entity-relationship-diagram">Entity Relationship Diagram<a href="#entity-relationship-diagram" class="hash-link" aria-label="Direct link to Entity Relationship Diagram" title="Direct link to Entity Relationship Diagram" translate="no">​</a></h2>
+<!-- -->
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="table-definitions">Table Definitions<a href="#table-definitions" class="hash-link" aria-label="Direct link to Table Definitions" title="Direct link to Table Definitions" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="users-table">Users Table<a href="#users-table" class="hash-link" aria-label="Direct link to Users Table" title="Direct link to Users Table" translate="no">​</a></h3>
+<p>Stores employee information and authentication credentials.</p>
+<p><strong>Columns:</strong></p>
+<ul>
+<li class=""><code>id</code> (UUID, PK): Unique identifier</li>
+<li class=""><code>email</code> (VARCHAR, UK): Employee email address</li>
+<li class=""><code>password_hash</code> (VARCHAR): Bcrypt hashed password</li>
+<li class=""><code>first_name</code> (VARCHAR): Employee first name</li>
+<li class=""><code>last_name</code> (VARCHAR): Employee last name</li>
+<li class=""><code>employee_id</code> (VARCHAR, UK): Company employee ID</li>
+<li class=""><code>role_id</code> (UUID, FK): Reference to roles table</li>
+<li class=""><code>department_id</code> (UUID, FK): Reference to departments table</li>
+<li class=""><code>shift_id</code> (UUID, FK): Reference to shifts table</li>
+<li class=""><code>is_active</code> (BOOLEAN): Account status</li>
+<li class=""><code>created_at</code> (TIMESTAMP): Record creation time</li>
+<li class=""><code>updated_at</code> (TIMESTAMP): Last update time</li>
+</ul>
+<p><strong>Indexes:</strong></p>
+<ul>
+<li class="">Primary key on <code>id</code></li>
+<li class="">Unique index on <code>email</code></li>
+<li class="">Unique index on <code>employee_id</code></li>
+<li class="">Index on <code>is_active</code> for filtering</li>
+<li class="">Composite index on <code>department_id, is_active</code></li>
+</ul>
+<hr>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="attendance-records-table">Attendance Records Table<a href="#attendance-records-table" class="hash-link" aria-label="Direct link to Attendance Records Table" title="Direct link to Attendance Records Table" translate="no">​</a></h3>
+<p>Stores all check-in and check-out events.</p>
+<p><strong>Columns:</strong></p>
+<ul>
+<li class=""><code>id</code> (UUID, PK): Unique identifier</li>
+<li class=""><code>user_id</code> (UUID, FK): Reference to users table</li>
+<li class=""><code>check_in</code> (TIMESTAMP): Check-in time</li>
+<li class=""><code>check_out</code> (TIMESTAMP, nullable): Check-out time</li>
+<li class=""><code>status</code> (VARCHAR): Status (on-time, late, early, overtime)</li>
+<li class=""><code>location</code> (VARCHAR, nullable): Check-in location</li>
+<li class=""><code>notes</code> (TEXT, nullable): Additional notes</li>
+<li class=""><code>shift_id</code> (UUID, FK): Reference to shifts table</li>
+<li class=""><code>created_at</code> (TIMESTAMP): Record creation time</li>
+</ul>
+<p><strong>Indexes:</strong></p>
+<ul>
+<li class="">Primary key on <code>id</code></li>
+<li class="">Index on <code>user_id</code> for user queries</li>
+<li class="">Index on <code>check_in</code> for date range queries</li>
+<li class="">Composite index on <code>user_id, check_in</code> for user history</li>
+<li class="">Index on <code>status</code> for reporting</li>
+</ul>
+<p><strong>Constraints:</strong></p>
+<ul>
+<li class="">Foreign key to <code>users(id)</code> with CASCADE delete</li>
+<li class="">Foreign key to <code>shifts(id)</code></li>
+<li class="">Check constraint: <code>check_out &gt;= check_in</code></li>
+</ul>
+<hr>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="qr-codes-table">QR Codes Table<a href="#qr-codes-table" class="hash-link" aria-label="Direct link to QR Codes Table" title="Direct link to QR Codes Table" translate="no">​</a></h3>
+<p>Manages QR code assignments for employees.</p>
+<p><strong>Columns:</strong></p>
+<ul>
+<li class=""><code>id</code> (UUID, PK): Unique identifier</li>
+<li class=""><code>user_id</code> (UUID, FK): Reference to users table</li>
+<li class=""><code>code_data</code> (VARCHAR, UK): Encoded QR data</li>
+<li class=""><code>generated_at</code> (TIMESTAMP): Generation time</li>
+<li class=""><code>expires_at</code> (TIMESTAMP, nullable): Expiration time</li>
+<li class=""><code>is_active</code> (BOOLEAN): Active status</li>
+</ul>
+<p><strong>Indexes:</strong></p>
+<ul>
+<li class="">Primary key on <code>id</code></li>
+<li class="">Unique index on <code>code_data</code></li>
+<li class="">Index on <code>user_id</code></li>
+<li class="">Composite index on <code>is_active, expires_at</code></li>
+</ul>
+<p><strong>Constraints:</strong></p>
+<ul>
+<li class="">Foreign key to <code>users(id)</code> with CASCADE delete</li>
+<li class="">Unique constraint on <code>user_id</code> (one active QR per user)</li>
+</ul>
+<hr>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="roles-table">Roles Table<a href="#roles-table" class="hash-link" aria-label="Direct link to Roles Table" title="Direct link to Roles Table" translate="no">​</a></h3>
+<p>Defines user roles and permissions.</p>
+<p><strong>Columns:</strong></p>
+<ul>
+<li class=""><code>id</code> (UUID, PK): Unique identifier</li>
+<li class=""><code>name</code> (VARCHAR, UK): Role name (e.g., &quot;Employee&quot;, &quot;Admin&quot;)</li>
+<li class=""><code>description</code> (TEXT): Role description</li>
+<li class=""><code>permissions</code> (JSONB): JSON object containing permissions</li>
+<li class=""><code>created_at</code> (TIMESTAMP): Record creation time</li>
+</ul>
+<p><strong>Default Roles:</strong></p>
+<ul>
+<li class=""><code>Employee</code>: Basic attendance recording</li>
+<li class=""><code>Supervisor</code>: View team attendance</li>
+<li class=""><code>HR Manager</code>: Manage employees and reports</li>
+<li class=""><code>Admin</code>: Full system access</li>
+</ul>
+<p><strong>Permission Structure:</strong></p>
+<div class="language-json codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-json codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#bfc7d5"><span class="token punctuation" style="color:rgb(199, 146, 234)">{</span><span class="token plain"></span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">  </span><span class="token property">&quot;attendance&quot;</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token punctuation" style="color:rgb(199, 146, 234)">[</span><span class="token string" style="color:rgb(195, 232, 141)">&quot;read&quot;</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"> </span><span class="token string" style="color:rgb(195, 232, 141)">&quot;create&quot;</span><span class="token punctuation" style="color:rgb(199, 146, 234)">]</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">  </span><span class="token property">&quot;users&quot;</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token punctuation" style="color:rgb(199, 146, 234)">[</span><span class="token string" style="color:rgb(195, 232, 141)">&quot;read&quot;</span><span class="token punctuation" style="color:rgb(199, 146, 234)">]</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">  </span><span class="token property">&quot;reports&quot;</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token punctuation" style="color:rgb(199, 146, 234)">[</span><span class="token string" style="color:rgb(195, 232, 141)">&quot;read&quot;</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"> </span><span class="token string" style="color:rgb(195, 232, 141)">&quot;generate&quot;</span><span class="token punctuation" style="color:rgb(199, 146, 234)">]</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">  </span><span class="token property">&quot;settings&quot;</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token punctuation" style="color:rgb(199, 146, 234)">[</span><span class="token punctuation" style="color:rgb(199, 146, 234)">]</span><span class="token plain"></span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain"></span><span class="token punctuation" style="color:rgb(199, 146, 234)">}</span><br></span></code></pre></div></div>
+<hr>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="departments-table">Departments Table<a href="#departments-table" class="hash-link" aria-label="Direct link to Departments Table" title="Direct link to Departments Table" translate="no">​</a></h3>
+<p>Organizational structure definition.</p>
+<p><strong>Columns:</strong></p>
+<ul>
+<li class=""><code>id</code> (UUID, PK): Unique identifier</li>
+<li class=""><code>name</code> (VARCHAR, UK): Department name</li>
+<li class=""><code>description</code> (TEXT): Department description</li>
+<li class=""><code>manager_id</code> (UUID, FK, nullable): Reference to users table</li>
+<li class=""><code>created_at</code> (TIMESTAMP): Record creation time</li>
+</ul>
+<p><strong>Indexes:</strong></p>
+<ul>
+<li class="">Primary key on <code>id</code></li>
+<li class="">Unique index on <code>name</code></li>
+<li class="">Index on <code>manager_id</code></li>
+</ul>
+<hr>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="shifts-table">Shifts Table<a href="#shifts-table" class="hash-link" aria-label="Direct link to Shifts Table" title="Direct link to Shifts Table" translate="no">​</a></h3>
+<p>Work shift definitions and schedules.</p>
+<p><strong>Columns:</strong></p>
+<ul>
+<li class=""><code>id</code> (UUID, PK): Unique identifier</li>
+<li class=""><code>name</code> (VARCHAR): Shift name (e.g., &quot;Morning&quot;, &quot;Night&quot;)</li>
+<li class=""><code>start_time</code> (TIME): Shift start time</li>
+<li class=""><code>end_time</code> (TIME): Shift end time</li>
+<li class=""><code>grace_period_minutes</code> (INTEGER): Late arrival grace period</li>
+<li class=""><code>working_days</code> (JSONB): Array of working days [1-7]</li>
+<li class=""><code>created_at</code> (TIMESTAMP): Record creation time</li>
+</ul>
+<p><strong>Example Working Days:</strong></p>
+<div class="language-json codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-json codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#bfc7d5"><span class="token punctuation" style="color:rgb(199, 146, 234)">[</span><span class="token number" style="color:rgb(247, 140, 108)">1</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"> </span><span class="token number" style="color:rgb(247, 140, 108)">2</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"> </span><span class="token number" style="color:rgb(247, 140, 108)">3</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"> </span><span class="token number" style="color:rgb(247, 140, 108)">4</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"> </span><span class="token number" style="color:rgb(247, 140, 108)">5</span><span class="token punctuation" style="color:rgb(199, 146, 234)">]</span><span class="token plain">  </span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic">// Monday through Friday</span><br></span></code></pre></div></div>
+<hr>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="biometric-data-table-optional">Biometric Data Table (Optional)<a href="#biometric-data-table-optional" class="hash-link" aria-label="Direct link to Biometric Data Table (Optional)" title="Direct link to Biometric Data Table (Optional)" translate="no">​</a></h3>
+<p>Stores biometric enrollment data for enhanced security.</p>
+<p><strong>Columns:</strong></p>
+<ul>
+<li class=""><code>id</code> (UUID, PK): Unique identifier</li>
+<li class=""><code>user_id</code> (UUID, FK): Reference to users table</li>
+<li class=""><code>biometric_type</code> (VARCHAR): Type (face, fingerprint)</li>
+<li class=""><code>biometric_hash</code> (BYTEA): Encrypted biometric template</li>
+<li class=""><code>enrolled_at</code> (TIMESTAMP): Enrollment time</li>
+<li class=""><code>last_verified_at</code> (TIMESTAMP, nullable): Last verification time</li>
+</ul>
+<p><strong>Security:</strong></p>
+<ul>
+<li class="">Biometric data is hashed/encrypted, never stored raw</li>
+<li class="">Compliant with GDPR, BIPA, CCPA requirements</li>
+<li class="">Strict access controls on this table</li>
+</ul>
+<hr>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="audit-logs-table">Audit Logs Table<a href="#audit-logs-table" class="hash-link" aria-label="Direct link to Audit Logs Table" title="Direct link to Audit Logs Table" translate="no">​</a></h3>
+<p>Tracks all system actions for compliance and security.</p>
+<p><strong>Columns:</strong></p>
+<ul>
+<li class=""><code>id</code> (UUID, PK): Unique identifier</li>
+<li class=""><code>user_id</code> (UUID, FK, nullable): User who performed action</li>
+<li class=""><code>action</code> (VARCHAR): Action type (CREATE, UPDATE, DELETE, LOGIN)</li>
+<li class=""><code>resource</code> (VARCHAR): Resource affected (users, attendance)</li>
+<li class=""><code>changes</code> (JSONB): JSON object with old/new values</li>
+<li class=""><code>ip_address</code> (VARCHAR): Client IP address</li>
+<li class=""><code>created_at</code> (TIMESTAMP): Action timestamp</li>
+</ul>
+<p><strong>Indexes:</strong></p>
+<ul>
+<li class="">Primary key on <code>id</code></li>
+<li class="">Index on <code>user_id</code></li>
+<li class="">Index on <code>created_at</code> for time-based queries</li>
+<li class="">Index on <code>action</code> for filtering</li>
+</ul>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="data-relationships">Data Relationships<a href="#data-relationships" class="hash-link" aria-label="Direct link to Data Relationships" title="Direct link to Data Relationships" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="one-to-many-relationships">One-to-Many Relationships<a href="#one-to-many-relationships" class="hash-link" aria-label="Direct link to One-to-Many Relationships" title="Direct link to One-to-Many Relationships" translate="no">​</a></h3>
+<p><strong>User → Attendance Records</strong></p>
+<ul>
+<li class="">One user can have many attendance records</li>
+<li class="">Cascade delete: Deleting a user removes their attendance history</li>
+</ul>
+<p><strong>User → Audit Logs</strong></p>
+<ul>
+<li class="">One user can have many audit log entries</li>
+<li class="">No cascade delete: Logs persist for compliance</li>
+</ul>
+<p><strong>Department → Users</strong></p>
+<ul>
+<li class="">One department contains many users</li>
+<li class="">Restrict delete: Cannot delete department with assigned users</li>
+</ul>
+<p><strong>Shift → Users</strong></p>
+<ul>
+<li class="">One shift can be assigned to many users</li>
+<li class="">Restrict delete: Cannot delete shift with assigned users</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="one-to-one-relationships">One-to-One Relationships<a href="#one-to-one-relationships" class="hash-link" aria-label="Direct link to One-to-One Relationships" title="Direct link to One-to-One Relationships" translate="no">​</a></h3>
+<p><strong>User ↔ QR Code</strong></p>
+<ul>
+<li class="">Each user has exactly one active QR code</li>
+<li class="">Cascade delete: Deleting user removes QR code</li>
+</ul>
+<p><strong>User ↔ Biometric Data</strong> (Optional)</p>
+<ul>
+<li class="">Each user can have one biometric enrollment per type</li>
+<li class="">Cascade delete: Deleting user removes biometric data</li>
+</ul>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="data-access-patterns">Data Access Patterns<a href="#data-access-patterns" class="hash-link" aria-label="Direct link to Data Access Patterns" title="Direct link to Data Access Patterns" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="common-queries">Common Queries<a href="#common-queries" class="hash-link" aria-label="Direct link to Common Queries" title="Direct link to Common Queries" translate="no">​</a></h3>
+<p><strong>Get User Attendance History</strong></p>
+<div class="language-sql codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-sql codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#bfc7d5"><span class="token keyword" style="font-style:italic">SELECT</span><span class="token plain"> </span><span class="token operator" style="color:rgb(137, 221, 255)">*</span><span class="token plain"> </span><span class="token keyword" style="font-style:italic">FROM</span><span class="token plain"> attendance_records </span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain"></span><span class="token keyword" style="font-style:italic">WHERE</span><span class="token plain"> user_id </span><span class="token operator" style="color:rgb(137, 221, 255)">=</span><span class="token plain"> ? </span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain"></span><span class="token operator" style="color:rgb(137, 221, 255)">AND</span><span class="token plain"> check_in </span><span class="token operator" style="color:rgb(137, 221, 255)">&gt;=</span><span class="token plain"> ? </span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain"></span><span class="token operator" style="color:rgb(137, 221, 255)">AND</span><span class="token plain"> check_in </span><span class="token operator" style="color:rgb(137, 221, 255)">&lt;</span><span class="token plain"> ?</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain"></span><span class="token keyword" style="font-style:italic">ORDER</span><span class="token plain"> </span><span class="token keyword" style="font-style:italic">BY</span><span class="token plain"> check_in </span><span class="token keyword" style="font-style:italic">DESC</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><br></span></code></pre></div></div>
+<p><strong>Find Late Arrivals Today</strong></p>
+<div class="language-sql codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-sql codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#bfc7d5"><span class="token keyword" style="font-style:italic">SELECT</span><span class="token plain"> u</span><span class="token punctuation" style="color:rgb(199, 146, 234)">.</span><span class="token operator" style="color:rgb(137, 221, 255)">*</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"> a</span><span class="token punctuation" style="color:rgb(199, 146, 234)">.</span><span class="token operator" style="color:rgb(137, 221, 255)">*</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"> s</span><span class="token punctuation" style="color:rgb(199, 146, 234)">.</span><span class="token plain">start_time</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain"></span><span class="token keyword" style="font-style:italic">FROM</span><span class="token plain"> attendance_records a</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain"></span><span class="token keyword" style="font-style:italic">JOIN</span><span class="token plain"> users u </span><span class="token keyword" style="font-style:italic">ON</span><span class="token plain"> a</span><span class="token punctuation" style="color:rgb(199, 146, 234)">.</span><span class="token plain">user_id </span><span class="token operator" style="color:rgb(137, 221, 255)">=</span><span class="token plain"> u</span><span class="token punctuation" style="color:rgb(199, 146, 234)">.</span><span class="token plain">id</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain"></span><span class="token keyword" style="font-style:italic">JOIN</span><span class="token plain"> shifts s </span><span class="token keyword" style="font-style:italic">ON</span><span class="token plain"> a</span><span class="token punctuation" style="color:rgb(199, 146, 234)">.</span><span class="token plain">shift_id </span><span class="token operator" style="color:rgb(137, 221, 255)">=</span><span class="token plain"> s</span><span class="token punctuation" style="color:rgb(199, 146, 234)">.</span><span class="token plain">id</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain"></span><span class="token keyword" style="font-style:italic">WHERE</span><span class="token plain"> </span><span class="token keyword" style="font-style:italic">DATE</span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token plain">a</span><span class="token punctuation" style="color:rgb(199, 146, 234)">.</span><span class="token plain">check_in</span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><span class="token plain"> </span><span class="token operator" style="color:rgb(137, 221, 255)">=</span><span class="token plain"> </span><span class="token keyword" style="font-style:italic">CURRENT_DATE</span><span class="token plain"></span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain"></span><span class="token operator" style="color:rgb(137, 221, 255)">AND</span><span class="token plain"> </span><span class="token keyword" style="font-style:italic">TIME</span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token plain">a</span><span class="token punctuation" style="color:rgb(199, 146, 234)">.</span><span class="token plain">check_in</span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><span class="token plain"> </span><span class="token operator" style="color:rgb(137, 221, 255)">&gt;</span><span class="token plain"> s</span><span class="token punctuation" style="color:rgb(199, 146, 234)">.</span><span class="token plain">start_time </span><span class="token operator" style="color:rgb(137, 221, 255)">+</span><span class="token plain"> </span><span class="token keyword" style="font-style:italic">INTERVAL</span><span class="token plain"> </span><span class="token string" style="color:rgb(195, 232, 141)">&#x27;? minutes&#x27;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain"></span><span class="token operator" style="color:rgb(137, 221, 255)">AND</span><span class="token plain"> a</span><span class="token punctuation" style="color:rgb(199, 146, 234)">.</span><span class="token keyword" style="font-style:italic">status</span><span class="token plain"> </span><span class="token operator" style="color:rgb(137, 221, 255)">=</span><span class="token plain"> </span><span class="token string" style="color:rgb(195, 232, 141)">&#x27;late&#x27;</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><br></span></code></pre></div></div>
+<p><strong>Department Attendance Summary</strong></p>
+<div class="language-sql codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-sql codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#bfc7d5"><span class="token keyword" style="font-style:italic">SELECT</span><span class="token plain"> d</span><span class="token punctuation" style="color:rgb(199, 146, 234)">.</span><span class="token plain">name</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"> </span><span class="token function" style="color:rgb(130, 170, 255)">COUNT</span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token plain">a</span><span class="token punctuation" style="color:rgb(199, 146, 234)">.</span><span class="token plain">id</span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><span class="token plain"> </span><span class="token keyword" style="font-style:italic">as</span><span class="token plain"> check_ins</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"> </span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">       </span><span class="token function" style="color:rgb(130, 170, 255)">COUNT</span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token keyword" style="font-style:italic">CASE</span><span class="token plain"> </span><span class="token keyword" style="font-style:italic">WHEN</span><span class="token plain"> a</span><span class="token punctuation" style="color:rgb(199, 146, 234)">.</span><span class="token keyword" style="font-style:italic">status</span><span class="token plain"> </span><span class="token operator" style="color:rgb(137, 221, 255)">=</span><span class="token plain"> </span><span class="token string" style="color:rgb(195, 232, 141)">&#x27;late&#x27;</span><span class="token plain"> </span><span class="token keyword" style="font-style:italic">THEN</span><span class="token plain"> </span><span class="token number" style="color:rgb(247, 140, 108)">1</span><span class="token plain"> </span><span class="token keyword" style="font-style:italic">END</span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><span class="token plain"> </span><span class="token keyword" style="font-style:italic">as</span><span class="token plain"> late_count</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain"></span><span class="token keyword" style="font-style:italic">FROM</span><span class="token plain"> departments d</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain"></span><span class="token keyword" style="font-style:italic">JOIN</span><span class="token plain"> users u </span><span class="token keyword" style="font-style:italic">ON</span><span class="token plain"> d</span><span class="token punctuation" style="color:rgb(199, 146, 234)">.</span><span class="token plain">id </span><span class="token operator" style="color:rgb(137, 221, 255)">=</span><span class="token plain"> u</span><span class="token punctuation" style="color:rgb(199, 146, 234)">.</span><span class="token plain">department_id</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain"></span><span class="token keyword" style="font-style:italic">JOIN</span><span class="token plain"> attendance_records a </span><span class="token keyword" style="font-style:italic">ON</span><span class="token plain"> u</span><span class="token punctuation" style="color:rgb(199, 146, 234)">.</span><span class="token plain">id </span><span class="token operator" style="color:rgb(137, 221, 255)">=</span><span class="token plain"> a</span><span class="token punctuation" style="color:rgb(199, 146, 234)">.</span><span class="token plain">user_id</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain"></span><span class="token keyword" style="font-style:italic">WHERE</span><span class="token plain"> </span><span class="token keyword" style="font-style:italic">DATE</span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token plain">a</span><span class="token punctuation" style="color:rgb(199, 146, 234)">.</span><span class="token plain">check_in</span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><span class="token plain"> </span><span class="token operator" style="color:rgb(137, 221, 255)">=</span><span class="token plain"> </span><span class="token keyword" style="font-style:italic">CURRENT_DATE</span><span class="token plain"></span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain"></span><span class="token keyword" style="font-style:italic">GROUP</span><span class="token plain"> </span><span class="token keyword" style="font-style:italic">BY</span><span class="token plain"> d</span><span class="token punctuation" style="color:rgb(199, 146, 234)">.</span><span class="token plain">name</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><br></span></code></pre></div></div>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="data-migration-strategy">Data Migration Strategy<a href="#data-migration-strategy" class="hash-link" aria-label="Direct link to Data Migration Strategy" title="Direct link to Data Migration Strategy" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="version-control">Version Control<a href="#version-control" class="hash-link" aria-label="Direct link to Version Control" title="Direct link to Version Control" translate="no">​</a></h3>
+<ul>
+<li class="">Alembic for database migrations</li>
+<li class="">Sequential migration scripts</li>
+<li class="">Rollback support for all migrations</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="migration-process">Migration Process<a href="#migration-process" class="hash-link" aria-label="Direct link to Migration Process" title="Direct link to Migration Process" translate="no">​</a></h3>
+<ol>
+<li class="">Create migration script</li>
+<li class="">Test on development database</li>
+<li class="">Review and approve changes</li>
+<li class="">Apply to staging environment</li>
+<li class="">Deploy to production with backup</li>
+</ol>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="backup-and-recovery">Backup and Recovery<a href="#backup-and-recovery" class="hash-link" aria-label="Direct link to Backup and Recovery" title="Direct link to Backup and Recovery" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="backup-strategy">Backup Strategy<a href="#backup-strategy" class="hash-link" aria-label="Direct link to Backup Strategy" title="Direct link to Backup Strategy" translate="no">​</a></h3>
+<ul>
+<li class=""><strong>Full Backups</strong>: Daily at 2:00 AM UTC</li>
+<li class=""><strong>Incremental Backups</strong>: Every 6 hours</li>
+<li class=""><strong>Transaction Logs</strong>: Continuous archiving</li>
+<li class=""><strong>Retention</strong>: 30 days for daily, 7 days for incremental</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="recovery-procedures">Recovery Procedures<a href="#recovery-procedures" class="hash-link" aria-label="Direct link to Recovery Procedures" title="Direct link to Recovery Procedures" translate="no">​</a></h3>
+<ul>
+<li class="">Point-in-time recovery capability</li>
+<li class="">Automated backup verification</li>
+<li class="">Documented restore procedures</li>
+<li class="">Regular disaster recovery drills</li>
+</ul>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="performance-optimization">Performance Optimization<a href="#performance-optimization" class="hash-link" aria-label="Direct link to Performance Optimization" title="Direct link to Performance Optimization" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="indexing-strategy">Indexing Strategy<a href="#indexing-strategy" class="hash-link" aria-label="Direct link to Indexing Strategy" title="Direct link to Indexing Strategy" translate="no">​</a></h3>
+<ul>
+<li class="">Primary keys on all tables (UUID)</li>
+<li class="">Unique indexes on email, employee_id, code_data</li>
+<li class="">Composite indexes for common query patterns</li>
+<li class="">Partial indexes for filtered queries</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="query-optimization">Query Optimization<a href="#query-optimization" class="hash-link" aria-label="Direct link to Query Optimization" title="Direct link to Query Optimization" translate="no">​</a></h3>
+<ul>
+<li class="">Connection pooling (min: 5, max: 20)</li>
+<li class="">Prepared statements for frequent queries</li>
+<li class="">Query result caching (Redis future consideration)</li>
+<li class="">EXPLAIN ANALYZE for slow queries</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="future-enhancements">Future Enhancements<a href="#future-enhancements" class="hash-link" aria-label="Direct link to Future Enhancements" title="Direct link to Future Enhancements" translate="no">​</a></h3>
+<ul>
+<li class="">Table partitioning for attendance_records by date</li>
+<li class="">Read replicas for reporting queries</li>
+<li class="">Materialized views for complex reports</li>
+<li class="">Archived data strategy for old records</li>
+</ul>
+<hr>
+<div class="theme-admonition theme-admonition-tip admonition_xJq3 alert alert--success"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 12 16"><path fill-rule="evenodd" d="M6.5 0C3.48 0 1 2.19 1 5c0 .92.55 2.25 1 3 1.34 2.25 1.78 2.78 2 4v1h5v-1c.22-1.22.66-1.75 2-4 .45-.75 1-2.08 1-3 0-2.81-2.48-5-5.5-5zm3.64 7.48c-.25.44-.47.8-.67 1.11-.86 1.41-1.25 2.06-1.45 3.23-.02.05-.02.11-.02.17H5c0-.06 0-.13-.02-.17-.2-1.17-.59-1.83-1.45-3.23-.2-.31-.42-.67-.67-1.11C2.44 6.78 2 5.65 2 5c0-2.2 2.02-4 4.5-4 1.22 0 2.36.42 3.22 1.19C10.55 2.94 11 3.94 11 5c0 .66-.44 1.78-.86 2.48zM4 14h5c-.23 1.14-1.3 2-2.5 2s-2.27-.86-2.5-2z"></path></svg></span>Database Management</div><div class="admonitionContent_BuS1"><p>Regular database maintenance includes VACUUM, ANALYZE, and index rebuilding to maintain optimal performance. Monitoring tools track query performance, connection pool usage, and slow query logs.</p></div></div></div></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/tapwork-docs/architecture/components"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">Component Architecture</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/tapwork-docs/architecture/api-architecture"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">API Architecture</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#database-schema-overview" class="table-of-contents__link toc-highlight">Database Schema Overview</a><ul><li><a href="#design-principles" class="table-of-contents__link toc-highlight">Design Principles</a></li></ul></li><li><a href="#entity-relationship-diagram" class="table-of-contents__link toc-highlight">Entity Relationship Diagram</a></li><li><a href="#table-definitions" class="table-of-contents__link toc-highlight">Table Definitions</a><ul><li><a href="#users-table" class="table-of-contents__link toc-highlight">Users Table</a></li><li><a href="#attendance-records-table" class="table-of-contents__link toc-highlight">Attendance Records Table</a></li><li><a href="#qr-codes-table" class="table-of-contents__link toc-highlight">QR Codes Table</a></li><li><a href="#roles-table" class="table-of-contents__link toc-highlight">Roles Table</a></li><li><a href="#departments-table" class="table-of-contents__link toc-highlight">Departments Table</a></li><li><a href="#shifts-table" class="table-of-contents__link toc-highlight">Shifts Table</a></li><li><a href="#biometric-data-table-optional" class="table-of-contents__link toc-highlight">Biometric Data Table (Optional)</a></li><li><a href="#audit-logs-table" class="table-of-contents__link toc-highlight">Audit Logs Table</a></li></ul></li><li><a href="#data-relationships" class="table-of-contents__link toc-highlight">Data Relationships</a><ul><li><a href="#one-to-many-relationships" class="table-of-contents__link toc-highlight">One-to-Many Relationships</a></li><li><a href="#one-to-one-relationships" class="table-of-contents__link toc-highlight">One-to-One Relationships</a></li></ul></li><li><a href="#data-access-patterns" class="table-of-contents__link toc-highlight">Data Access Patterns</a><ul><li><a href="#common-queries" class="table-of-contents__link toc-highlight">Common Queries</a></li></ul></li><li><a href="#data-migration-strategy" class="table-of-contents__link toc-highlight">Data Migration Strategy</a><ul><li><a href="#version-control" class="table-of-contents__link toc-highlight">Version Control</a></li><li><a href="#migration-process" class="table-of-contents__link toc-highlight">Migration Process</a></li></ul></li><li><a href="#backup-and-recovery" class="table-of-contents__link toc-highlight">Backup and Recovery</a><ul><li><a href="#backup-strategy" class="table-of-contents__link toc-highlight">Backup Strategy</a></li><li><a href="#recovery-procedures" class="table-of-contents__link toc-highlight">Recovery Procedures</a></li></ul></li><li><a href="#performance-optimization" class="table-of-contents__link toc-highlight">Performance Optimization</a><ul><li><a href="#indexing-strategy" class="table-of-contents__link toc-highlight">Indexing Strategy</a></li><li><a href="#query-optimization" class="table-of-contents__link toc-highlight">Query Optimization</a></li><li><a href="#future-enhancements" class="table-of-contents__link toc-highlight">Future Enhancements</a></li></ul></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="footer__bottom text--center"><div class="footer__copyright">© 2025 TAPWORK-DOCS. All rights reserved.</div></div></div></footer></div>
+</body>
+</html>

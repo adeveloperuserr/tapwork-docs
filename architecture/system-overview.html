@@ -3,358 +3,106 @@
 <head>
 <meta charset="UTF-8">
 <meta name="generator" content="Docusaurus v3.9.2">
-<title data-rh="true">System Architecture | TapWork Docs</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://adeveloperuserr.github.io/tapwork-docs/architecture/system-overview"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="System Architecture | TapWork Docs"><meta data-rh="true" name="description" content="This document provides a high-level overview of the TAPWORK system architecture, including its core components and their interactions."><meta data-rh="true" property="og:description" content="This document provides a high-level overview of the TAPWORK system architecture, including its core components and their interactions."><link data-rh="true" rel="canonical" href="https://adeveloperuserr.github.io/tapwork-docs/architecture/system-overview"><link data-rh="true" rel="alternate" href="https://adeveloperuserr.github.io/tapwork-docs/architecture/system-overview" hreflang="en"><link data-rh="true" rel="alternate" href="https://adeveloperuserr.github.io/tapwork-docs/architecture/system-overview" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"System Architecture","item":"https://adeveloperuserr.github.io/tapwork-docs/architecture/system-overview"}]}</script><link rel="stylesheet" href="/tapwork-docs/assets/css/styles.9273b4fc.css">
-<script src="/tapwork-docs/assets/js/runtime~main.a7b8440a.js" defer="defer"></script>
-<script src="/tapwork-docs/assets/js/main.05a78df9.js" defer="defer"></script>
+<title data-rh="true">System Overview | TapWork Docs</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://adeveloperuserr.github.io/tapwork-docs/architecture/system-overview"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="System Overview | TapWork Docs"><meta data-rh="true" name="description" content="This document provides a high-level overview of the TAPWORK system architecture, showing how all major components interact to deliver a complete attendance management solution."><meta data-rh="true" property="og:description" content="This document provides a high-level overview of the TAPWORK system architecture, showing how all major components interact to deliver a complete attendance management solution."><link data-rh="true" rel="canonical" href="https://adeveloperuserr.github.io/tapwork-docs/architecture/system-overview"><link data-rh="true" rel="alternate" href="https://adeveloperuserr.github.io/tapwork-docs/architecture/system-overview" hreflang="en"><link data-rh="true" rel="alternate" href="https://adeveloperuserr.github.io/tapwork-docs/architecture/system-overview" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"System Overview","item":"https://adeveloperuserr.github.io/tapwork-docs/architecture/system-overview"}]}</script><link rel="stylesheet" href="/tapwork-docs/assets/css/styles.9273b4fc.css">
+<script src="/tapwork-docs/assets/js/runtime~main.fde9657f.js" defer="defer"></script>
+<script src="/tapwork-docs/assets/js/main.af726ca2.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
 <svg style="display: none;"><defs>
 <symbol id="theme-svg-external-link" viewBox="0 0 24 24"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
 </defs></svg>
-<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||"light"),document.documentElement.setAttribute("data-theme-choice",t||"light")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="theme-layout-navbar navbar navbar--fixed-top"><div class="navbar__inner"><div class="theme-layout-navbar-left navbar__items"><a class="navbar__brand" href="/tapwork-docs/"><b class="navbar__title text--truncate">TAPWORK Docs</b></a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill="currentColor" d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/tapwork-docs/intro"><span title="Introduction to TAPWORK" class="linkLabel_WmDU">Introduction to TAPWORK</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/tapwork-docs/getting-started"><span title="Getting Started with TAPWORK-DOCS" class="linkLabel_WmDU">Getting Started with TAPWORK-DOCS</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/tapwork-docs/planning/vision-context-scope"><span title="Project Overview" class="categoryLinkLabel_W154">Project Overview</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/tapwork-docs/guides/api"><span title="Guides" class="categoryLinkLabel_W154">Guides</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/tapwork-docs/rf/intro"><span title="Requirements" class="categoryLinkLabel_W154">Requirements</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" href="/tapwork-docs/architecture/system-overview"><span title="Architecture" class="categoryLinkLabel_W154">Architecture</span></a></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/tapwork-docs/architecture/system-overview"><span title="System Architecture" class="linkLabel_WmDU">System Architecture</span></a></li></ul></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/tapwork-docs/CONTRIBUTING"><span title="Contributing" class="linkLabel_WmDU">Contributing</span></a></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Breadcrumbs"><ul class="breadcrumbs"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/tapwork-docs/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">Architecture</span></li><li class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link">System Architecture</span></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>System Architecture</h1></header>
-<p>This document provides a high-level overview of the TAPWORK system architecture, including its core components and their interactions.</p>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||"light"),document.documentElement.setAttribute("data-theme-choice",t||"light")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="theme-layout-navbar navbar navbar--fixed-top"><div class="navbar__inner"><div class="theme-layout-navbar-left navbar__items"><a class="navbar__brand" href="/tapwork-docs/"><b class="navbar__title text--truncate">TAPWORK Docs</b></a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill="currentColor" d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/tapwork-docs/intro"><span title="Introduction to TAPWORK" class="linkLabel_WmDU">Introduction to TAPWORK</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/tapwork-docs/getting-started"><span title="Getting Started with TAPWORK-DOCS" class="linkLabel_WmDU">Getting Started with TAPWORK-DOCS</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/tapwork-docs/planning/vision-context-scope"><span title="Project Overview" class="categoryLinkLabel_W154">Project Overview</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/tapwork-docs/guides/api"><span title="Guides" class="categoryLinkLabel_W154">Guides</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/tapwork-docs/rf/intro"><span title="Requirements" class="categoryLinkLabel_W154">Requirements</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" href="/tapwork-docs/architecture/system-overview"><span title="Architecture" class="categoryLinkLabel_W154">Architecture</span></a></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/tapwork-docs/architecture/system-overview"><span title="System Overview" class="linkLabel_WmDU">System Overview</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/tapwork-docs/architecture/components"><span title="Component Architecture" class="linkLabel_WmDU">Component Architecture</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/tapwork-docs/architecture/data-architecture"><span title="Data Architecture" class="linkLabel_WmDU">Data Architecture</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/tapwork-docs/architecture/api-architecture"><span title="API Architecture" class="linkLabel_WmDU">API Architecture</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/tapwork-docs/architecture/process-flows"><span title="Process Flows" class="linkLabel_WmDU">Process Flows</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/tapwork-docs/architecture/deployment"><span title="Deployment Architecture" class="linkLabel_WmDU">Deployment Architecture</span></a></li></ul></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/tapwork-docs/CONTRIBUTING"><span title="Contributing" class="linkLabel_WmDU">Contributing</span></a></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Breadcrumbs"><ul class="breadcrumbs"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/tapwork-docs/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">Architecture</span></li><li class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link">System Overview</span></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>System Overview</h1></header>
+<p>This document provides a high-level overview of the TAPWORK system architecture, showing how all major components interact to deliver a complete attendance management solution.</p>
 <div class="theme-admonition theme-admonition-info admonition_xJq3 alert alert--info"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path></svg></span>Optional Biometric Service</div><div class="admonitionContent_BuS1"><p>The biometric module is included as an <strong>optional service</strong> to support future enhancements without affecting current functionality. The system operates fully without it.</p></div></div>
 <hr>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="architecture-diagram">Architecture Diagram<a href="#architecture-diagram" class="hash-link" aria-label="Direct link to Architecture Diagram" title="Direct link to Architecture Diagram" translate="no">​</a></h2>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="high-level-architecture">High-Level Architecture<a href="#high-level-architecture" class="hash-link" aria-label="Direct link to High-Level Architecture" title="Direct link to High-Level Architecture" translate="no">​</a></h2>
 <!-- -->
 <hr>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="architecture-overview">Architecture Overview<a href="#architecture-overview" class="hash-link" aria-label="Direct link to Architecture Overview" title="Direct link to Architecture Overview" translate="no">​</a></h2>
 <p>The TAPWORK system follows a <strong>three-tier architecture</strong> designed for scalability, maintainability, and future extensibility. The architecture separates concerns into distinct layers, each with specific responsibilities and clear interfaces between them.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="key-architectural-principles">Key Architectural Principles<a href="#key-architectural-principles" class="hash-link" aria-label="Direct link to Key Architectural Principles" title="Direct link to Key Architectural Principles" translate="no">​</a></h3>
-<p><strong>1. Separation of Concerns</strong></p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="system-layers">System Layers<a href="#system-layers" class="hash-link" aria-label="Direct link to System Layers" title="Direct link to System Layers" translate="no">​</a></h3>
+<p><strong>Client Layer</strong></p>
+<ul>
+<li class="">Employee/User interface for attendance operations</li>
+<li class="">Admin/HR Portal for system management and reporting</li>
+</ul>
+<p><strong>Frontend Layer</strong></p>
+<ul>
+<li class="">Scanner Application: Progressive Web App (PWA) for QR code scanning</li>
+<li class="">Responsive design supporting mobile, tablet, and desktop devices</li>
+<li class="">Offline-capable with Service Workers</li>
+</ul>
+<p><strong>Backend Services Layer</strong></p>
+<ul>
+<li class="">API Service: Core business logic and request processing</li>
+<li class="">PostgreSQL: Relational database for data persistence</li>
+<li class="">SMTP Service: Email notification system</li>
+<li class="">Biometric Service (Optional): Identity verification for enhanced security</li>
+</ul>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="key-architectural-principles">Key Architectural Principles<a href="#key-architectural-principles" class="hash-link" aria-label="Direct link to Key Architectural Principles" title="Direct link to Key Architectural Principles" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-separation-of-concerns">1. Separation of Concerns<a href="#1-separation-of-concerns" class="hash-link" aria-label="Direct link to 1. Separation of Concerns" title="Direct link to 1. Separation of Concerns" translate="no">​</a></h3>
 <ul>
 <li class="">Each layer has a well-defined responsibility</li>
 <li class="">Changes in one layer minimally impact others</li>
 <li class="">Clear API contracts between layers</li>
 </ul>
-<p><strong>2. Scalability</strong></p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-scalability">2. Scalability<a href="#2-scalability" class="hash-link" aria-label="Direct link to 2. Scalability" title="Direct link to 2. Scalability" translate="no">​</a></h3>
 <ul>
 <li class="">Stateless API design allows horizontal scaling</li>
 <li class="">Database connection pooling optimizes resource usage</li>
 <li class="">Container orchestration (Kubernetes) enables dynamic scaling</li>
 </ul>
-<p><strong>3. Extensibility</strong></p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-extensibility">3. Extensibility<a href="#3-extensibility" class="hash-link" aria-label="Direct link to 3. Extensibility" title="Direct link to 3. Extensibility" translate="no">​</a></h3>
 <ul>
 <li class="">Optional services (like biometrics) can be added without system redesign</li>
 <li class="">Plugin architecture allows new features to be integrated seamlessly</li>
 <li class="">API-first design enables multiple client implementations</li>
 </ul>
-<p><strong>4. Security by Design</strong></p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-security-by-design">4. Security by Design<a href="#4-security-by-design" class="hash-link" aria-label="Direct link to 4. Security by Design" title="Direct link to 4. Security by Design" translate="no">​</a></h3>
 <ul>
 <li class="">Authentication handled at API gateway level</li>
 <li class="">Role-based access control (RBAC) for all endpoints</li>
 <li class="">Encrypted data in transit and at rest</li>
 </ul>
 <hr>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="system-layers">System Layers<a href="#system-layers" class="hash-link" aria-label="Direct link to System Layers" title="Direct link to System Layers" translate="no">​</a></h2>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-client-layer">1. Client Layer<a href="#1-client-layer" class="hash-link" aria-label="Direct link to 1. Client Layer" title="Direct link to 1. Client Layer" translate="no">​</a></h3>
-<p>The client layer represents the users who interact with the TAPWORK system through different interfaces:</p>
-<p><strong>Employee/User Interface</strong></p>
-<ul>
-<li class="">Primary users who record their attendance</li>
-<li class="">Access the system via mobile devices or desktop browsers</li>
-<li class="">Interact primarily with the Scanner Application</li>
-<li class="">Typical actions: clock in/out, view personal attendance history</li>
-<li class="">No special permissions required - read-only access to own data</li>
-</ul>
-<p><strong>Admin/HR Portal</strong></p>
-<ul>
-<li class="">Management interface for HR personnel and administrators</li>
-<li class="">Access to system-wide data and configurations</li>
-<li class="">Typical actions: manage employees, generate reports, configure system settings, monitor attendance</li>
-<li class="">Requires elevated permissions with role-based access control</li>
-<li class="">Can manage user accounts, attendance policies, and system parameters</li>
-</ul>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-frontend-layer">2. Frontend Layer<a href="#2-frontend-layer" class="hash-link" aria-label="Direct link to 2. Frontend Layer" title="Direct link to 2. Frontend Layer" translate="no">​</a></h3>
-<p><strong>Scanner Application</strong></p>
-<p>The Scanner Application is a progressive web app (PWA) that serves as the primary employee interface:</p>
-<ul>
-<li class=""><strong>Technology Stack</strong>: Built with modern JavaScript frameworks (React/Vue.js)</li>
-<li class=""><strong>Camera Integration</strong>: Uses WebRTC MediaDevices API to access device camera</li>
-<li class=""><strong>QR Code Processing</strong>: Real-time QR code detection and validation</li>
-<li class=""><strong>Offline Capability</strong>: Service Workers enable basic functionality without internet</li>
-<li class=""><strong>Responsive Design</strong>: Works seamlessly on mobile phones, tablets, and desktop computers</li>
-<li class=""><strong>User Experience</strong>: Simple, intuitive interface requiring minimal training</li>
-</ul>
-<p><strong>Key Features</strong>:</p>
-<ul>
-<li class="">Real-time camera preview for QR scanning</li>
-<li class="">Instant feedback on successful/failed scans</li>
-<li class="">Error handling and user guidance</li>
-<li class="">Local caching for improved performance</li>
-<li class="">Automatic retry logic for failed submissions</li>
-</ul>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-backend-services-layer">3. Backend Services Layer<a href="#3-backend-services-layer" class="hash-link" aria-label="Direct link to 3. Backend Services Layer" title="Direct link to 3. Backend Services Layer" translate="no">​</a></h3>
-<p>The backend layer runs on containerized infrastructure (Docker/Kubernetes) and consists of several microservices:</p>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="api-service-fastapi">API Service (FastAPI)<a href="#api-service-fastapi" class="hash-link" aria-label="Direct link to API Service (FastAPI)" title="Direct link to API Service (FastAPI)" translate="no">​</a></h4>
-<p>The core of the system, responsible for all business logic:</p>
-<ul>
-<li class=""><strong>Request Handling</strong>: Processes all HTTP requests from clients</li>
-<li class=""><strong>Authentication</strong>: JWT-based token validation for secure access</li>
-<li class=""><strong>Authorization</strong>: Role-based access control (RBAC) implementation</li>
-<li class=""><strong>Data Validation</strong>: Input sanitization and validation using Pydantic models</li>
-<li class=""><strong>Business Logic</strong>: Attendance rules, overtime calculations, late/early detection</li>
-<li class=""><strong>Integration Hub</strong>: Coordinates between database, SMTP, and optional services</li>
-</ul>
-<p><strong>Key Endpoints</strong>:</p>
-<ul>
-<li class=""><code>POST /attendance</code> - Record new attendance entry</li>
-<li class=""><code>GET /attendance/{id}</code> - Retrieve attendance records</li>
-<li class=""><code>GET /reports</code> - Generate attendance reports</li>
-<li class=""><code>POST /auth/login</code> - User authentication</li>
-<li class=""><code>GET /employees</code> - Employee management (admin only)</li>
-</ul>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="postgresql-database">PostgreSQL Database<a href="#postgresql-database" class="hash-link" aria-label="Direct link to PostgreSQL Database" title="Direct link to PostgreSQL Database" translate="no">​</a></h4>
-<p>Relational database providing persistent storage:</p>
-<ul>
-<li class=""><strong>Data Models</strong>: Employees, Attendance Records, Shifts, Departments, Roles</li>
-<li class=""><strong>Relationships</strong>: Foreign keys maintain data integrity</li>
-<li class=""><strong>Indexing</strong>: Optimized indexes for fast querying</li>
-<li class=""><strong>Transactions</strong>: ACID compliance ensures data consistency</li>
-<li class=""><strong>Backups</strong>: Automated daily backups with point-in-time recovery</li>
-<li class=""><strong>Performance</strong>: Connection pooling and query optimization</li>
-</ul>
-<p><strong>Key Tables</strong>:</p>
-<ul>
-<li class=""><code>employees</code> - Employee information and credentials</li>
-<li class=""><code>attendance_records</code> - All check-in/check-out records</li>
-<li class=""><code>shifts</code> - Work shift definitions</li>
-<li class=""><code>departments</code> - Organizational structure</li>
-<li class=""><code>audit_logs</code> - System activity tracking</li>
-</ul>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="smtp-service">SMTP Service<a href="#smtp-service" class="hash-link" aria-label="Direct link to SMTP Service" title="Direct link to SMTP Service" translate="no">​</a></h4>
-<p>Email notification system for automated communications:</p>
-<ul>
-<li class=""><strong>Development Environment</strong>: Uses Mailhog for email testing without sending real emails</li>
-<li class=""><strong>Production Environment</strong>: Configurable SMTP server (SendGrid, Amazon SES, etc.)</li>
-<li class=""><strong>Notification Types</strong>:<!-- -->
-<ul>
-<li class="">Attendance confirmations</li>
-<li class="">Late arrival alerts</li>
-<li class="">Missing clock-out reminders</li>
-<li class="">Weekly/monthly reports</li>
-<li class="">System alerts for administrators</li>
-</ul>
-</li>
-<li class=""><strong>Template System</strong>: HTML email templates with dynamic content</li>
-<li class=""><strong>Queue Management</strong>: Asynchronous email sending to prevent blocking</li>
-</ul>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="biometric-service-optional">Biometric Service (Optional)<a href="#biometric-service-optional" class="hash-link" aria-label="Direct link to Biometric Service (Optional)" title="Direct link to Biometric Service (Optional)" translate="no">​</a></h4>
-<p>Future-ready module for enhanced identity verification:</p>
-<ul>
-<li class=""><strong>Purpose</strong>: Adds an additional layer of security beyond QR codes</li>
-<li class=""><strong>Technologies</strong>: Face recognition, fingerprint scanning</li>
-<li class=""><strong>Integration</strong>: Loosely coupled via API calls</li>
-<li class=""><strong>Activation</strong>: Can be enabled/disabled per location or employee group</li>
-<li class=""><strong>Privacy</strong>: Compliant with biometric data regulations (GDPR, BIPA)</li>
-<li class=""><strong>Fallback</strong>: System continues working if biometric validation is unavailable</li>
-</ul>
-<p><strong>Implementation Status</strong>:</p>
-<ul>
-<li class="">Currently in planning phase</li>
-<li class="">Architecture supports seamless integration</li>
-<li class="">Will not disrupt existing functionality when added</li>
-</ul>
-<hr>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="component-interactions">Component Interactions<a href="#component-interactions" class="hash-link" aria-label="Direct link to Component Interactions" title="Direct link to Component Interactions" translate="no">​</a></h2>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="standard-attendance-flow">Standard Attendance Flow<a href="#standard-attendance-flow" class="hash-link" aria-label="Direct link to Standard Attendance Flow" title="Direct link to Standard Attendance Flow" translate="no">​</a></h3>
-<ol>
-<li class="">
-<p><strong>Employee Authentication</strong></p>
-<ul>
-<li class="">Employee opens Scanner Application</li>
-<li class="">May require initial login (cached for subsequent uses)</li>
-<li class="">Scanner App receives authentication token</li>
-</ul>
-</li>
-<li class="">
-<p><strong>QR Code Scanning</strong></p>
-<ul>
-<li class="">Camera activates and displays live preview</li>
-<li class="">Employee presents their personal QR code</li>
-<li class="">Scanner detects and decodes QR data</li>
-<li class="">Client-side validation ensures QR format is correct</li>
-</ul>
-</li>
-<li class="">
-<p><strong>Attendance Submission</strong></p>
-<ul>
-<li class="">Scanner App sends POST request to <code>/attendance</code> endpoint</li>
-<li class="">Request includes: QR data, timestamp, device info, location (if available)</li>
-<li class="">API validates authentication token</li>
-<li class="">API verifies QR code authenticity</li>
-</ul>
-</li>
-<li class="">
-<p><strong>Business Logic Processing</strong></p>
-<ul>
-<li class="">API checks if employee exists and is active</li>
-<li class="">Determines if action is clock-in or clock-out</li>
-<li class="">Validates against shift schedule</li>
-<li class="">Detects late arrival, early departure, or overtime</li>
-<li class="">Applies attendance policies (grace periods, rounding rules)</li>
-</ul>
-</li>
-<li class="">
-<p><strong>Data Persistence</strong></p>
-<ul>
-<li class="">Validated attendance record saved to PostgreSQL</li>
-<li class="">Transaction ensures atomic operation</li>
-<li class="">Database triggers may update related tables</li>
-</ul>
-</li>
-<li class="">
-<p><strong>Confirmation &amp; Notification</strong></p>
-<ul>
-<li class="">Success response sent to Scanner App</li>
-<li class="">User sees confirmation message</li>
-<li class="">Optional email confirmation queued in SMTP service</li>
-<li class="">Admin dashboard updates in real-time (if monitoring)</li>
-</ul>
-</li>
-</ol>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="admin-management-flow">Admin Management Flow<a href="#admin-management-flow" class="hash-link" aria-label="Direct link to Admin Management Flow" title="Direct link to Admin Management Flow" translate="no">​</a></h3>
-<ol>
-<li class="">
-<p><strong>Admin Authentication</strong></p>
-<ul>
-<li class="">Admin logs into HR Portal</li>
-<li class="">Higher-level permissions granted based on role</li>
-</ul>
-</li>
-<li class="">
-<p><strong>System Management</strong></p>
-<ul>
-<li class="">View real-time attendance dashboard</li>
-<li class="">Generate custom reports</li>
-<li class="">Manage employee accounts</li>
-<li class="">Configure system settings</li>
-<li class="">Review audit logs</li>
-</ul>
-</li>
-<li class="">
-<p><strong>Data Retrieval</strong></p>
-<ul>
-<li class="">API queries PostgreSQL with appropriate filters</li>
-<li class="">Results formatted and returned to portal</li>
-<li class="">Large datasets paginated for performance</li>
-</ul>
-</li>
-</ol>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="optional-biometric-flow">Optional Biometric Flow<a href="#optional-biometric-flow" class="hash-link" aria-label="Direct link to Optional Biometric Flow" title="Direct link to Optional Biometric Flow" translate="no">​</a></h3>
-<p>When enabled, adds an additional verification step:</p>
-<ol>
-<li class="">Scanner App captures biometric data (face image or fingerprint)</li>
-<li class="">Data sent to Biometric Service via secure channel</li>
-<li class="">Service performs identity verification</li>
-<li class="">Result returned to API Service</li>
-<li class="">API proceeds with attendance recording only if verified</li>
-<li class="">Fallback to QR-only mode if biometric service unavailable</li>
-</ol>
-<hr>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="communication-protocols">Communication Protocols<a href="#communication-protocols" class="hash-link" aria-label="Direct link to Communication Protocols" title="Direct link to Communication Protocols" translate="no">​</a></h2>
+<p>All inter-service communication uses encrypted channels and authentication tokens to ensure security:</p>
 <ul>
-<li class=""><strong>Client ↔ API</strong>: HTTPS/REST (JSON payloads)</li>
+<li class=""><strong>Client ↔ API</strong>: HTTPS/REST with JSON payloads</li>
 <li class=""><strong>API ↔ Database</strong>: PostgreSQL wire protocol (encrypted connection)</li>
 <li class=""><strong>API ↔ SMTP</strong>: SMTP/TLS for secure email transmission</li>
 <li class=""><strong>API ↔ Biometric Service</strong>: HTTPS/REST (when enabled)</li>
 </ul>
-<p>All inter-service communication uses encrypted channels and authentication tokens to ensure security.</p>
 <hr>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="client-layer">Client Layer<a href="#client-layer" class="hash-link" aria-label="Direct link to Client Layer" title="Direct link to Client Layer" translate="no">​</a></h3>
-<p>The client layer represents the end-users interacting with the system:</p>
-<ul>
-<li class=""><strong>Employee/User</strong>: End-users who clock in/out using the scanner interface</li>
-<li class=""><strong>Admin/HR Portal</strong>: Administrative dashboard for system management, reporting, and configuration</li>
-</ul>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="frontend-layer">Frontend Layer<a href="#frontend-layer" class="hash-link" aria-label="Direct link to Frontend Layer" title="Direct link to Frontend Layer" translate="no">​</a></h3>
-<ul>
-<li class=""><strong>Scanner Application</strong>: Browser-based progressive web app (PWA) that captures QR codes using the device camera and JavaScript. Provides a responsive interface for both mobile and desktop devices.</li>
-</ul>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="backend-services">Backend Services<a href="#backend-services" class="hash-link" aria-label="Direct link to Backend Services" title="Direct link to Backend Services" translate="no">​</a></h3>
-<p>The backend runs on Docker/Kubernetes and includes:</p>
-<ul>
-<li class=""><strong>API Service (FastAPI)</strong>: Core REST API handling all business logic, authentication, and data validation</li>
-<li class=""><strong>PostgreSQL Database</strong>: Relational database for persistent storage of attendance records, user data, and system configuration</li>
-<li class=""><strong>SMTP Service</strong>: Email notification system (development environment uses Mailhog for testing)</li>
-<li class=""><strong>Biometric Service</strong> <em>(Optional)</em>: Future-ready module for face recognition or fingerprint validation</li>
-</ul>
-<hr>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="data-flow">Data Flow<a href="#data-flow" class="hash-link" aria-label="Direct link to Data Flow" title="Direct link to Data Flow" translate="no">​</a></h2>
-<p>The typical attendance recording flow follows these steps:</p>
-<ol>
-<li class=""><strong>Access</strong>: Employee opens the scanner application via web browser</li>
-<li class=""><strong>Scan</strong>: User scans their personal QR code using the device camera</li>
-<li class=""><strong>Validation</strong> <em>(Optional)</em>: Biometric validation can be performed if enabled</li>
-<li class=""><strong>Processing</strong>: API receives the request via <code>POST /attendance</code> endpoint</li>
-<li class=""><strong>Storage</strong>: Validated attendance record is stored in PostgreSQL</li>
-<li class=""><strong>Notification</strong>: Email confirmation sent via SMTP service (if configured)</li>
-</ol>
-<hr>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="component-details">Component Details<a href="#component-details" class="hash-link" aria-label="Direct link to Component Details" title="Direct link to Component Details" translate="no">​</a></h2>
-<table><thead><tr><th>Component</th><th>Technology</th><th>Purpose</th><th>Status</th></tr></thead><tbody><tr><td>Scanner App</td><td>JavaScript/PWA</td><td>QR code capture and submission</td><td>✅ Active</td></tr><tr><td>API Service</td><td>FastAPI (Python)</td><td>Business logic and data processing</td><td>✅ Active</td></tr><tr><td>Database</td><td>PostgreSQL</td><td>Persistent data storage</td><td>✅ Active</td></tr><tr><td>SMTP Service</td><td>Mailhog/SMTP</td><td>Email notifications</td><td>✅ Active</td></tr><tr><td>Biometric Service</td><td>TBD</td><td>Identity validation</td><td>🔄 Optional</td></tr></tbody></table>
-<hr>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="design-principles">Design Principles<a href="#design-principles" class="hash-link" aria-label="Direct link to Design Principles" title="Direct link to Design Principles" translate="no">​</a></h2>
-<p>The TAPWORK architecture follows these key principles:</p>
-<ul>
-<li class=""><strong>Modularity</strong>: Each component can be developed, tested, and scaled independently</li>
-<li class=""><strong>Extensibility</strong>: New features (like biometrics) can be added without breaking existing functionality</li>
-<li class=""><strong>Containerization</strong>: Docker/Kubernetes deployment ensures consistency across environments</li>
-<li class=""><strong>API-First</strong>: Clear separation between frontend and backend enables multiple client implementations</li>
-<li class=""><strong>Security</strong>: Authentication and authorization handled at the API layer</li>
-<li class=""><strong>Scalability</strong>: Horizontal scaling supported for all stateless services</li>
-</ul>
-<hr>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="deployment-architecture">Deployment Architecture<a href="#deployment-architecture" class="hash-link" aria-label="Direct link to Deployment Architecture" title="Direct link to Deployment Architecture" translate="no">​</a></h2>
-<!-- -->
-<hr>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="future-enhancements">Future Enhancements<a href="#future-enhancements" class="hash-link" aria-label="Direct link to Future Enhancements" title="Direct link to Future Enhancements" translate="no">​</a></h2>
-<p>The architecture is designed to support the following planned features:</p>
-<ul>
-<li class="">✅ Biometric authentication (facial recognition and fingerprint scanning)</li>
-<li class="">✅ Multi-location deployment with centralized management</li>
-<li class="">✅ Real-time attendance monitoring dashboards</li>
-<li class="">✅ Advanced analytics and reporting capabilities</li>
-<li class="">✅ Native mobile applications (iOS/Android)</li>
-<li class="">✅ Third-party HR system integrations (SAP, Workday, etc.)</li>
-<li class="">✅ Offline mode with automatic synchronization</li>
-<li class="">✅ Geofencing for location-based attendance validation</li>
-</ul>
-<hr>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="technology-stack">Technology Stack<a href="#technology-stack" class="hash-link" aria-label="Direct link to Technology Stack" title="Direct link to Technology Stack" translate="no">​</a></h2>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="technology-stack-summary">Technology Stack Summary<a href="#technology-stack-summary" class="hash-link" aria-label="Direct link to Technology Stack Summary" title="Direct link to Technology Stack Summary" translate="no">​</a></h2>
 <h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="frontend">Frontend<a href="#frontend" class="hash-link" aria-label="Direct link to Frontend" title="Direct link to Frontend" translate="no">​</a></h3>
 <ul>
-<li class=""><strong>Framework</strong>: React/Vue.js</li>
-<li class=""><strong>PWA</strong>: Service Workers for offline capability</li>
-<li class=""><strong>Camera Access</strong>: WebRTC MediaDevices API</li>
-<li class=""><strong>QR Processing</strong>: jsQR or similar library</li>
+<li class="">React/Vue.js with Progressive Web App capabilities</li>
+<li class="">WebRTC for camera access</li>
+<li class="">Service Workers for offline support</li>
 </ul>
 <h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="backend">Backend<a href="#backend" class="hash-link" aria-label="Direct link to Backend" title="Direct link to Backend" translate="no">​</a></h3>
 <ul>
-<li class=""><strong>API Framework</strong>: FastAPI (Python 3.11+)</li>
-<li class=""><strong>ORM</strong>: SQLAlchemy</li>
-<li class=""><strong>Authentication</strong>: JWT tokens</li>
-<li class=""><strong>Validation</strong>: Pydantic models</li>
+<li class="">FastAPI (Python 3.11+)</li>
+<li class="">PostgreSQL 15+</li>
+<li class="">Docker containers</li>
+<li class="">Kubernetes orchestration (optional)</li>
 </ul>
 <h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="infrastructure">Infrastructure<a href="#infrastructure" class="hash-link" aria-label="Direct link to Infrastructure" title="Direct link to Infrastructure" translate="no">​</a></h3>
 <ul>
-<li class=""><strong>Container Runtime</strong>: Docker</li>
-<li class=""><strong>Orchestration</strong>: Kubernetes</li>
-<li class=""><strong>Database</strong>: PostgreSQL 15+</li>
-<li class=""><strong>Email</strong>: SMTP/Mailhog</li>
-<li class=""><strong>Reverse Proxy</strong>: Nginx/Traefik</li>
+<li class="">Container Runtime: Docker</li>
+<li class="">Orchestration: Kubernetes</li>
+<li class="">Email: Mailhog (dev) / SMTP (prod)</li>
+<li class="">Reverse Proxy: Nginx/Traefik</li>
 </ul>
 <hr>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="security-considerations">Security Considerations<a href="#security-considerations" class="hash-link" aria-label="Direct link to Security Considerations" title="Direct link to Security Considerations" translate="no">​</a></h2>
-<ul>
-<li class=""><strong>Authentication</strong>: JWT-based authentication for all API requests</li>
-<li class=""><strong>Authorization</strong>: Role-based access control (RBAC)</li>
-<li class=""><strong>Data Encryption</strong>: TLS/SSL for data in transit, encryption at rest for sensitive data</li>
-<li class=""><strong>API Rate Limiting</strong>: Protection against abuse and DoS attacks</li>
-<li class=""><strong>Input Validation</strong>: Strict validation of all user inputs</li>
-<li class=""><strong>Audit Logging</strong>: Comprehensive logging of all system actions</li>
-</ul>
-<hr>
-<div class="theme-admonition theme-admonition-note admonition_xJq3 alert alert--secondary"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M6.3 5.69a.942.942 0 0 1-.28-.7c0-.28.09-.52.28-.7.19-.18.42-.28.7-.28.28 0 .52.09.7.28.18.19.28.42.28.7 0 .28-.09.52-.28.7a1 1 0 0 1-.7.3c-.28 0-.52-.11-.7-.3zM8 7.99c-.02-.25-.11-.48-.31-.69-.2-.19-.42-.3-.69-.31H6c-.27.02-.48.13-.69.31-.2.2-.3.44-.31.69h1v3c.02.27.11.5.31.69.2.2.42.31.69.31h1c.27 0 .48-.11.69-.31.2-.19.3-.42.31-.69H8V7.98v.01zM7 2.3c-3.14 0-5.7 2.54-5.7 5.68 0 3.14 2.56 5.7 5.7 5.7s5.7-2.55 5.7-5.7c0-3.15-2.56-5.69-5.7-5.69v.01zM7 .98c3.86 0 7 3.14 7 7s-3.14 7-7 7-7-3.12-7-7 3.14-7 7-7z"></path></svg></span>note</div><div class="admonitionContent_BuS1"><p>The biometric service is shown with dashed lines in the diagrams to indicate its optional nature. The system is fully functional without this component and can be enabled when required.</p></div></div></div></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/tapwork-docs/rf/phases"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">Project Phases</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/tapwork-docs/CONTRIBUTING"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">Contributing</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#architecture-diagram" class="table-of-contents__link toc-highlight">Architecture Diagram</a></li><li><a href="#architecture-overview" class="table-of-contents__link toc-highlight">Architecture Overview</a><ul><li><a href="#key-architectural-principles" class="table-of-contents__link toc-highlight">Key Architectural Principles</a></li></ul></li><li><a href="#system-layers" class="table-of-contents__link toc-highlight">System Layers</a><ul><li><a href="#1-client-layer" class="table-of-contents__link toc-highlight">1. Client Layer</a></li><li><a href="#2-frontend-layer" class="table-of-contents__link toc-highlight">2. Frontend Layer</a></li><li><a href="#3-backend-services-layer" class="table-of-contents__link toc-highlight">3. Backend Services Layer</a></li></ul></li><li><a href="#component-interactions" class="table-of-contents__link toc-highlight">Component Interactions</a><ul><li><a href="#standard-attendance-flow" class="table-of-contents__link toc-highlight">Standard Attendance Flow</a></li><li><a href="#admin-management-flow" class="table-of-contents__link toc-highlight">Admin Management Flow</a></li><li><a href="#optional-biometric-flow" class="table-of-contents__link toc-highlight">Optional Biometric Flow</a></li></ul></li><li><a href="#communication-protocols" class="table-of-contents__link toc-highlight">Communication Protocols</a><ul><li><a href="#client-layer" class="table-of-contents__link toc-highlight">Client Layer</a></li><li><a href="#frontend-layer" class="table-of-contents__link toc-highlight">Frontend Layer</a></li><li><a href="#backend-services" class="table-of-contents__link toc-highlight">Backend Services</a></li></ul></li><li><a href="#data-flow" class="table-of-contents__link toc-highlight">Data Flow</a></li><li><a href="#component-details" class="table-of-contents__link toc-highlight">Component Details</a></li><li><a href="#design-principles" class="table-of-contents__link toc-highlight">Design Principles</a></li><li><a href="#deployment-architecture" class="table-of-contents__link toc-highlight">Deployment Architecture</a></li><li><a href="#future-enhancements" class="table-of-contents__link toc-highlight">Future Enhancements</a></li><li><a href="#technology-stack" class="table-of-contents__link toc-highlight">Technology Stack</a><ul><li><a href="#frontend" class="table-of-contents__link toc-highlight">Frontend</a></li><li><a href="#backend" class="table-of-contents__link toc-highlight">Backend</a></li><li><a href="#infrastructure" class="table-of-contents__link toc-highlight">Infrastructure</a></li></ul></li><li><a href="#security-considerations" class="table-of-contents__link toc-highlight">Security Considerations</a></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="footer__bottom text--center"><div class="footer__copyright">© 2025 TAPWORK-DOCS. All rights reserved.</div></div></div></footer></div>
+<div class="theme-admonition theme-admonition-note admonition_xJq3 alert alert--secondary"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M6.3 5.69a.942.942 0 0 1-.28-.7c0-.28.09-.52.28-.7.19-.18.42-.28.7-.28.28 0 .52.09.7.28.18.19.28.42.28.7 0 .28-.09.52-.28.7a1 1 0 0 1-.7.3c-.28 0-.52-.11-.7-.3zM8 7.99c-.02-.25-.11-.48-.31-.69-.2-.19-.42-.3-.69-.31H6c-.27.02-.48.13-.69.31-.2.2-.3.44-.31.69h1v3c.02.27.11.5.31.69.2.2.42.31.69.31h1c.27 0 .48-.11.69-.31.2-.19.3-.42.31-.69H8V7.98v.01zM7 2.3c-3.14 0-5.7 2.54-5.7 5.68 0 3.14 2.56 5.7 5.7 5.7s5.7-2.55 5.7-5.7c0-3.15-2.56-5.69-5.7-5.69v.01zM7 .98c3.86 0 7 3.14 7 7s-3.14 7-7 7-7-3.12-7-7 3.14-7 7-7z"></path></svg></span>Next Steps</div><div class="admonitionContent_BuS1"><p>For detailed information about specific aspects of the architecture, please refer to:</p><ul>
+<li class=""><a class="" href="/tapwork-docs/architecture/components">Component Architecture</a> - Detailed component descriptions</li>
+<li class=""><a class="" href="/tapwork-docs/architecture/data-architecture">Data Architecture</a> - Database schema and relationships</li>
+<li class=""><a class="" href="/tapwork-docs/architecture/api-architecture">API Architecture</a> - API structure and endpoints</li>
+<li class=""><a class="" href="/tapwork-docs/architecture/process-flows">Process Flows</a> - Registration and attendance workflows</li>
+<li class=""><a class="" href="/tapwork-docs/architecture/deployment">Deployment Architecture</a> - Docker and Kubernetes deployment</li>
+</ul></div></div></div></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/tapwork-docs/rf/phases"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">Project Phases</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/tapwork-docs/architecture/components"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">Component Architecture</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#high-level-architecture" class="table-of-contents__link toc-highlight">High-Level Architecture</a></li><li><a href="#architecture-overview" class="table-of-contents__link toc-highlight">Architecture Overview</a><ul><li><a href="#system-layers" class="table-of-contents__link toc-highlight">System Layers</a></li></ul></li><li><a href="#key-architectural-principles" class="table-of-contents__link toc-highlight">Key Architectural Principles</a><ul><li><a href="#1-separation-of-concerns" class="table-of-contents__link toc-highlight">1. Separation of Concerns</a></li><li><a href="#2-scalability" class="table-of-contents__link toc-highlight">2. Scalability</a></li><li><a href="#3-extensibility" class="table-of-contents__link toc-highlight">3. Extensibility</a></li><li><a href="#4-security-by-design" class="table-of-contents__link toc-highlight">4. Security by Design</a></li></ul></li><li><a href="#communication-protocols" class="table-of-contents__link toc-highlight">Communication Protocols</a></li><li><a href="#technology-stack-summary" class="table-of-contents__link toc-highlight">Technology Stack Summary</a><ul><li><a href="#frontend" class="table-of-contents__link toc-highlight">Frontend</a></li><li><a href="#backend" class="table-of-contents__link toc-highlight">Backend</a></li><li><a href="#infrastructure" class="table-of-contents__link toc-highlight">Infrastructure</a></li></ul></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="footer__bottom text--center"><div class="footer__copyright">© 2025 TAPWORK-DOCS. All rights reserved.</div></div></div></footer></div>
 </body>
 </html>
