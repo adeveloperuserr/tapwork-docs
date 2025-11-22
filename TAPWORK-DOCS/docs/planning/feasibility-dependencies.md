@@ -36,7 +36,7 @@ The system is simple to run, test, and expand due to its modular design.
 - Kubernetes enables realistic orchestration without external infrastructure.
 - Documentation makes maintenance and extension straightforward.
 
-The project is operationally feasible for solo development and future scaling.
+The project is operationally feasible for development and future scaling.
 
 ---
 

@@ -4,50 +4,65 @@ Welcome to the TAPWORK documentation! This comprehensive resource provides every
 
 ## Overview
 
-TAPWORK is a barcode-based attendance management system designed to streamline workforce tracking and enhance operational efficiency. This documentation covers system requirements, usage guides, API references, and technical specifications.
-
-## Getting Started
-
-New to TAPWORK? Start here:
-- <i class="fas fa-rocket"></i> [Getting Started Guide](./getting-started.md) — Quick setup and first steps
-- <i class="fas fa-book"></i> [Usage Guide](./guides/usage.md) — Learn how to use TAPWORK
-- <i class="fas fa-plug"></i> [API Reference](./guides/api.md) — Integration and API documentation
-
-## Requirements & Specifications
-
-For detailed technical and functional specifications:
-- <i class="fas fa-list-check"></i> [Functional Requirements](./rf/functional-requirements.md)
-- <i class="fas fa-cogs"></i> [Technical Requirements](./rf/technical-requirements.md)
-- <i class="fas fa-ban"></i> [Non-Functional Requirements](./rf/non-functional-requirements.md)
-- <i class="fas fa-server"></i> [Infrastructure](./rf/infrastructure.md)
-- <i class="fas fa-network-wired"></i> [Integration](./rf/integration.md)
-- <i class="fas fa-chart-gantt"></i> [Project Phases](./rf/phases.md)
-
-## Documentation Structure
-
-This documentation is organized into the following sections:
-
-| Section | Purpose |
-|---------|---------|
-| **Introduction** | Overview and quick navigation |
-| **Getting Started** | Setup and basic configuration |
-| **Guides** | Detailed usage and integration guides |
-| **Requirements** | Functional, technical, and infrastructure specifications |
-| **API Reference** | Complete API documentation |
-
-## What's Next?
-
-- Explore the [Getting Started](./getting-started.md) guide for setup instructions
-- Review the [Requirements](./rf/functional-requirements.md) for system specifications
-- Check the [Usage Guide](./guides/usage.md) for practical examples
-
-## Need Help?
-
-- <i class="fas fa-question-circle"></i> Check the [FAQ](./getting-started.md) section
-- <i class="fas fa-file-lines"></i> Review the [Contributing Guidelines](./CONTRIBUTING.md)
-- <i class="fas fa-github"></i> Open an issue on GitHub
+TAPWORK is a barcode-based attendance management system designed to streamline workforce tracking and enhance operational efficiency. This documentation covers system requirements, usage guides, and the system's architecture.
 
 ---
 
-**Last Updated:** December 2024  
-**Version:** 1.0.0
+## Planning
+
+Planning artifacts and project foundation documents:
+
+- <i class="fas fa-lightbulb"></i> **Vision, Context & Scope**
+- <i class="fas fa-tasks"></i> **Feasibility & Dependencies**
+
+---
+
+## Requirements & Specifications (RF)
+
+All project requirements in one place:
+
+- <i class="fas fa-list-check"></i> **Functional Requirements**
+- <i class="fas fa-cogs"></i> **Technical Requirements**
+- <i class="fas fa-ban"></i> **Non-Functional Requirements**
+- <i class="fas fa-server"></i> **Infrastructure Requirements**
+- <i class="fas fa-network-wired"></i> **Integration Requirements**
+- <i class="fas fa-chart-gantt"></i> **Project Phases**
+
+---
+
+## Architecture
+
+Detailed explanation of how the system is structured:
+
+- <i class="fas fa-sitemap"></i> **System Overview**
+- <i class="fas fa-puzzle-piece"></i> **Component Architecture**
+- <i class="fas fa-database"></i> **Data Architecture**
+- <i class="fas fa-project-diagram"></i> **API Architecture**
+- <i class="fa-solid fa-hexagon-nodes"></i> **Process Flows**
+- <i class="fas fa-server"></i> **Deployment Architecture**
+
+---
+
+## Documentation Structure
+
+| Section | Purpose |
+|--------|---------|
+| **Getting Started** | Installation and first-time configuration |
+| **Guides** | Practical usage and API integration |
+| **Architecture** | System design, data flow, and deployment |
+| **Planning** | Vision, context, and feasibility of the project |
+| **Requirements (RF)** | Specifications: functional, technical, non-functional, integration, infrastructure |
+| **API Reference** | Complete REST API documentation |
+
+---
+
+## Need Help?
+
+- <i class="fas fa-question-circle"></i> FAQ — inside the [Getting Started](./getting-started.md) guide  
+- <i class="fas fa-file-lines"></i> [Contributing Guidelines](./CONTRIBUTING.md)  
+- <i class="fas fa-github"></i> Open an issue in the repository  
+
+---
+
+**Last Updated:** December 2025
+**Version:** 1.0.1
