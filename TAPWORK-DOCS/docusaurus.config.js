@@ -9,12 +9,10 @@ module.exports = {
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   
-  // ✅ AÑADE ESTO: Habilita Mermaid
   markdown: {
     mermaid: true,
   },
   
-  // ✅ AÑADE ESTO: Tema de Mermaid
   themes: ['@docusaurus/theme-mermaid'],
   
   presets: [
@@ -34,7 +32,6 @@ module.exports = {
   ],
   
   themeConfig: {
-    // ✅ OPCIONAL: Configura el tema de Mermaid (dark/light)
     mermaid: {
       theme: {light: 'neutral', dark: 'dark'},
     },
